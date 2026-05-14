@@ -1,0 +1,4 @@
+repos:
+  primary: "."
+  additional:
+    - "/home/aiops/beads-ai-helper/beads-planning"
