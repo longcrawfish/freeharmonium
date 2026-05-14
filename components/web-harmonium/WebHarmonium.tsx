@@ -175,7 +175,7 @@ const NOTE_LABELS = [
   ["B", 196],
 ] as const;
 
-const WHITE_KEY_BOTTOM_RADIUS = 1.5;
+const WHITE_KEY_BOTTOM_RADIUS = 5;
 
 function buildWhiteKeyPath(points: string) {
   const coordinates = points.split(" ").map((point) => {
@@ -737,7 +737,7 @@ export default function WebHarmonium() {
         </div>
 
         <>
-            <div className={`overflow-x-auto bg-transparent p-4 ${loading ? "opacity-80" : ""}`}>
+            <div className={`overflow-x-auto rounded-md border border-neutral-300 bg-transparent p-4 shadow-[0_10px_24px_rgba(212,212,212,0.45)] ${loading ? "opacity-80" : ""}`}>
               <svg
                 width="588"
                 height="220"
