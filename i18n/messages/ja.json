@@ -50,7 +50,19 @@
     "title": "Free Harmonium",
     "heroTitle": "Free Harmonium: Web Harmonium You Can Play Online",
     "tagLine": "ブラウザで演奏できるハーモニウム",
-    "description": "PCキーボード、タッチ画面、MIDIキーボードでブラウザから直接ハーモニウムを演奏できます。"
+    "description": "PCキーボード、タッチ画面、MIDIキーボードでブラウザから直接ハーモニウムを演奏できます。",
+    "seoTitle": "Free Harmonium: Web Harmonium You Can Play Online",
+    "seoDescription": "無料の Web Harmonium をオンラインで演奏できます。PCキーボード、タッチ画面、MIDIキーボードに対応したブラウザ用ハーモニウムキーボードです。",
+    "seoKeywords": [
+      "free harmonium",
+      "web harmonium",
+      "online harmonium",
+      "harmonium keyboard",
+      "play harmonium online",
+      "virtual harmonium",
+      "browser harmonium",
+      "swaram notation"
+    ]
   },
   "Blog": {
     "title": "ブログ一覧",

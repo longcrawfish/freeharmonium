@@ -8,6 +8,7 @@ type MetadataProps = {
   title?: string
   description?: string
   images?: string[]
+  keywords?: string[]
   noIndex?: boolean
   locale: Locale
   path?: string
@@ -19,6 +20,7 @@ export async function constructMetadata({
   title,
   description,
   images = [],
+  keywords = [],
   noIndex = false,
   locale,
   path,
@@ -30,6 +32,9 @@ export async function constructMetadata({
   // get page specific metadata translations
   const pageTitle = title || t(`title`)
   const pageDescription = description || t(`description`)
+  const normalizedPath = path || '/'
+  const localizedPath = `${locale === DEFAULT_LOCALE ? '' : `/${locale}`}${normalizedPath === '/' ? '' : normalizedPath}`
+  const pageURL = `${siteConfig.url}${localizedPath}`
 
   // build full title
   const finalTitle = page === 'Home'
@@ -39,16 +44,13 @@ export async function constructMetadata({
   // build image URLs
   const imageUrls = images.length > 0
     ? images.map(img => ({
-      url: img.startsWith('http') ? img : `${siteConfig.url}/${img}`,
+      url: img.startsWith('http') ? img : `${siteConfig.url}${img.startsWith('/') ? img : `/${img}`}`,
       alt: pageTitle,
     }))
     : [{
       url: `${siteConfig.url}/og.png`,
       alt: pageTitle,
     }]
-
-  // Open Graph Site
-  const pageURL = `${locale === DEFAULT_LOCALE ? '' : `/${locale}`}${path}` || siteConfig.url
 
   // build alternate language links
   const alternateLanguages = Object.keys(LOCALE_NAMES).reduce((acc, lang) => {
@@ -63,7 +65,7 @@ export async function constructMetadata({
   return {
     title: finalTitle,
     description: pageDescription,
-    keywords: [],
+    keywords,
     authors: siteConfig.authors,
     creator: siteConfig.creator,
     metadataBase: new URL(siteConfig.url),
@@ -84,7 +86,7 @@ export async function constructMetadata({
       card: 'summary_large_image',
       title: finalTitle,
       description: pageDescription,
-      site: `${siteConfig.url}${pageURL === '/' ? '' : pageURL}`,
+      site: siteConfig.url,
       images: imageUrls,
       creator: siteConfig.creator,
     },

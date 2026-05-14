@@ -32,12 +32,14 @@ export async function generateMetadata({
 }: MetadataProps): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Home" });
+  const keywords = t.raw("seoKeywords") as string[];
 
   const metadata = await constructMetadata({
     page: "Home",
-    title: t("title"),
-    description: t("description"),
+    title: t("seoTitle"),
+    description: t("seoDescription"),
     images: ["/webharmonium/webharmonium.png"],
+    keywords,
     locale: locale as Locale,
     path: `/`,
     canonicalUrl: `/`,

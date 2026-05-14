@@ -50,7 +50,19 @@
     "title": "Free Harmonium",
     "heroTitle": "Free Harmonium: Web Harmonium You Can Play Online",
     "tagLine": "Playable harmonium in the browser",
-    "description": "Play harmonium with your computer keyboard, touch screen, or MIDI keyboard directly in the browser."
+    "description": "Play harmonium with your computer keyboard, touch screen, or MIDI keyboard directly in the browser.",
+    "seoTitle": "Free Harmonium: Web Harmonium You Can Play Online",
+    "seoDescription": "Play a free web harmonium online with your computer keyboard, touch screen, or MIDI keyboard. Practice swaram notation and enjoy a browser-based harmonium keyboard.",
+    "seoKeywords": [
+      "free harmonium",
+      "web harmonium",
+      "online harmonium",
+      "harmonium keyboard",
+      "play harmonium online",
+      "virtual harmonium",
+      "browser harmonium",
+      "swaram notation"
+    ]
   },
   "Blog": {
     "title": "Blog Posts",
