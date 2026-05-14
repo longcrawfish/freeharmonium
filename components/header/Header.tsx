@@ -21,7 +21,7 @@ const Header = () => {
           >
             <Image
               alt={siteConfig.name}
-              src="/logo.svg"
+              src="/webharmonium/icons/webharmonium_192.png"
               className="w-6 h-6"
               width={32}
               height={32}
