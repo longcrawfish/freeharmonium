@@ -671,7 +671,9 @@ export default function WebHarmonium() {
       <div className="mx-auto flex min-h-[calc(100vh-4rem)] w-full max-w-3xl flex-col gap-5 px-4 py-5 sm:px-6">
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-neutral-300 pb-4">
           <div>
-            <h1 className="text-2xl font-semibold tracking-normal">Free Harmonium</h1>
+            <h1 className="text-2xl font-semibold tracking-normal">
+              Free Harmonium: Web Harmonium You Can Play Online
+            </h1>
             <p className="mt-1 text-sm text-neutral-600">{status}</p>
           </div>
           {loading && <RefreshCw className="h-5 w-5 animate-spin text-teal-700" aria-label="Loading samples" />}
