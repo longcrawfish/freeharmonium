@@ -874,8 +874,8 @@ export default function WebHarmonium() {
               </ControlPanel>
 
               <Stepper title={`Transpose - ${rootNote}`} value={transpose} onMinus={() => shiftSemitone(-1)} onPlus={() => shiftSemitone(1)} />
-              <Stepper title="Current Octave" value={octave} onMinus={() => shiftOctave(-1)} onPlus={() => shiftOctave(1)} />
-              <Stepper title="Additional Reeds" value={stackCount} onMinus={() => changeStack(-1)} onPlus={() => changeStack(1)} />
+              <Stepper title="Octave" value={octave} onMinus={() => shiftOctave(-1)} onPlus={() => shiftOctave(1)} />
+              <Stepper title="Reeds" value={stackCount} onMinus={() => changeStack(-1)} onPlus={() => changeStack(1)} />
 
               <ControlPanel
                 title={midiStatus}
