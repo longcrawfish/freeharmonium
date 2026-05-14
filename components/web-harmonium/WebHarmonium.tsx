@@ -175,7 +175,7 @@ const NOTE_LABELS = [
   ["B", 196],
 ] as const;
 
-const WHITE_KEY_BOTTOM_RADIUS = 5;
+const WHITE_KEY_BOTTOM_RADIUS = 7;
 
 function buildWhiteKeyPath(points: string) {
   const coordinates = points.split(" ").map((point) => {
