@@ -284,6 +284,8 @@ export default function WebHarmonium() {
   const loadedRef = useRef(loaded);
   const loadingPromiseRef = useRef<Promise<boolean> | null>(null);
   const loadModuleRef = useRef<() => Promise<boolean>>(async () => false);
+  const samplePrefetchRef = useRef<Promise<ArrayBuffer> | null>(null);
+  const reverbPrefetchRef = useRef<Promise<ArrayBuffer> | null>(null);
   const pressedNotesRef = useRef<Set<number>>(new Set());
   const midiPressedNotesRef = useRef<Set<number>>(new Set());
   const activePointerNoteRef = useRef<number | null>(null);
@@ -351,11 +353,19 @@ export default function WebHarmonium() {
     let timeoutId: number | undefined;
     let idleId: number | undefined;
 
+    const prefetchAudioFile = (url: string) =>
+      fetch(url, { signal: controller.signal }).then((response) => {
+        if (!response.ok) {
+          throw new Error(`Failed to prefetch ${url}`);
+        }
+
+        return response.arrayBuffer();
+      });
+
     const prefetchAudioFiles = () => {
-      void Promise.allSettled([
-        fetch(SAMPLE_URL, { signal: controller.signal }),
-        fetch(REVERB_URL, { signal: controller.signal }),
-      ]);
+      samplePrefetchRef.current = samplePrefetchRef.current || prefetchAudioFile(SAMPLE_URL);
+      reverbPrefetchRef.current = reverbPrefetchRef.current || prefetchAudioFile(REVERB_URL);
+      void Promise.allSettled([samplePrefetchRef.current, reverbPrefetchRef.current]);
     };
 
     if (idleWindow.requestIdleCallback) {
@@ -505,6 +515,18 @@ export default function WebHarmonium() {
   }, []);
 
   const loadAudioBuffer = useCallback(async (url: string, context: AudioContext) => {
+    const prefetchedBuffer =
+      url === SAMPLE_URL
+        ? samplePrefetchRef.current
+        : url === REVERB_URL
+          ? reverbPrefetchRef.current
+          : null;
+
+    if (prefetchedBuffer) {
+      const buffer = await prefetchedBuffer;
+      return context.decodeAudioData(buffer.slice(0));
+    }
+
     const response = await fetch(url);
     if (!response.ok) {
       throw new Error(`Failed to load ${url}`);
