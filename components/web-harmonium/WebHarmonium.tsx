@@ -212,8 +212,8 @@ type AudioContextConstructor = typeof AudioContext;
 
 type MidiInput = {
   id: string;
-  name?: string;
-  manufacturer?: string;
+  name?: string | null;
+  manufacturer?: string | null;
   onmidimessage: ((message: MIDIMessageEvent) => void) | null;
 };
 
@@ -221,6 +221,7 @@ type MidiAccess = {
   inputs: {
     values(): IterableIterator<MidiInput>;
   };
+  onstatechange: ((event: MIDIConnectionEvent) => void) | null;
 };
 
 type MidiMessage = {
@@ -231,7 +232,7 @@ type MidiMessage = {
 };
 
 type MidiNavigator = Navigator & {
-  requestMIDIAccess?: () => Promise<MidiAccess>;
+  requestMIDIAccess?: (options?: { sysex?: boolean }) => Promise<MidiAccess>;
 };
 
 type MidiDevice = {
@@ -249,7 +250,7 @@ export default function WebHarmonium() {
   const [octave, setOctave] = useState(DEFAULT_OCTAVE);
   const [stackCount, setStackCount] = useState(0);
   const [notation, setNotation] = useState("");
-  const [midiStatus, setMidiStatus] = useState("MIDI keyboard");
+  const [midiStatus, setMidiStatus] = useState("MIDI keyboard: click refresh to connect");
   const [midiDevices, setMidiDevices] = useState<MidiDevice[]>([]);
   const [selectedMidiId, setSelectedMidiId] = useState("");
   const [visuallyPressedNotes, setVisuallyPressedNotes] = useState<Set<number>>(() => new Set());
@@ -258,6 +259,7 @@ export default function WebHarmonium() {
   const audioBufferRef = useRef<AudioBuffer | null>(null);
   const gainNodeRef = useRef<GainNode | null>(null);
   const reverbNodeRef = useRef<ConvolverNode | null>(null);
+  const midiAccessRef = useRef<MidiAccess | null>(null);
   const sourceNodesRef = useRef<Array<AudioBufferSourceNode | null>>([]);
   const sourceStateRef = useRef<number[]>([]);
   const keyMapRef = useRef<number[]>([]);
@@ -269,6 +271,7 @@ export default function WebHarmonium() {
   const loadingPromiseRef = useRef<Promise<boolean> | null>(null);
   const loadModuleRef = useRef<() => Promise<boolean>>(async () => false);
   const pressedNotesRef = useRef<Set<number>>(new Set());
+  const midiPressedNotesRef = useRef<Set<number>>(new Set());
   const activePointerNoteRef = useRef<number | null>(null);
 
   const rootNote = useMemo(
@@ -425,6 +428,19 @@ export default function WebHarmonium() {
     });
   }, []);
 
+  const releaseMidiNotes = useCallback(() => {
+    const notes = Array.from(midiPressedNotesRef.current);
+    midiPressedNotesRef.current.clear();
+
+    notes.forEach((note) => {
+      pressedNotesRef.current.delete(note);
+      hidePressedKey(note);
+      if (loadedRef.current) {
+        noteOff(note);
+      }
+    });
+  }, [hidePressedKey, noteOff]);
+
   const updateReverbConnection = useCallback((enabled: boolean) => {
     const gainNode = gainNodeRef.current;
     const reverbNode = reverbNodeRef.current;
@@ -460,8 +476,11 @@ export default function WebHarmonium() {
       }
 
       const [command, note, velocity = 0] = message.data;
-      if (command === 144) {
+      const status = command & 0xf0;
+
+      if (status === 0x90) {
         if (velocity > 0) {
+          midiPressedNotesRef.current.add(note);
           pressedNotesRef.current.add(note);
           showPressedKey(note);
           if (loadedRef.current) {
@@ -474,15 +493,17 @@ export default function WebHarmonium() {
             });
           }
         } else {
+          midiPressedNotesRef.current.delete(note);
           pressedNotesRef.current.delete(note);
           hidePressedKey(note);
           noteOff(note);
         }
-      } else if (command === 128) {
+      } else if (status === 0x80) {
+        midiPressedNotesRef.current.delete(note);
         pressedNotesRef.current.delete(note);
         hidePressedKey(note);
         noteOff(note);
-      } else if (command === 176 && note === 7) {
+      } else if (status === 0xb0 && note === 7) {
         const nextVolume = Math.round((100 * velocity) / 127);
         setVolume(nextVolume);
         localStorage.setItem("webharmonium.volume", String(nextVolume));
@@ -503,27 +524,44 @@ export default function WebHarmonium() {
     }
 
     try {
-      const midiAccess = await midiNavigator.requestMIDIAccess();
-      const devices = Array.from(midiAccess.inputs.values()).map((input) => {
-        input.onmidimessage = (event) => {
-          handleMidiMessage({
-            data: Array.from(event.data || []),
-            target: { id: input.id },
-          });
-        };
-        return {
-          id: input.id,
-          label: `${input.name || "MIDI input"}${input.manufacturer ? ` by ${input.manufacturer}` : ""}`,
-        };
-      });
+      releaseMidiNotes();
 
-      setMidiDevices(devices);
-      setSelectedMidiId((current) => current || devices[0]?.id || "");
-      setMidiStatus(devices.length ? "MIDI keyboard: supported" : "MIDI keyboard: no input devices");
+      const midiAccess = midiAccessRef.current || (await midiNavigator.requestMIDIAccess({ sysex: false }));
+      midiAccessRef.current = midiAccess;
+
+      const refreshDevices = () => {
+        releaseMidiNotes();
+
+        const devices = Array.from(midiAccess.inputs.values()).map((input) => {
+          input.onmidimessage = (event) => {
+            handleMidiMessage({
+              data: Array.from(event.data || []),
+              target: { id: input.id },
+            });
+          };
+          return {
+            id: input.id,
+            label: `${input.name || "MIDI input"}${input.manufacturer ? ` by ${input.manufacturer}` : ""}`,
+          };
+        });
+
+        setMidiDevices(devices);
+        setSelectedMidiId((current) => {
+          if (devices.some((device) => device.id === current)) {
+            return current;
+          }
+
+          return devices[0]?.id || "";
+        });
+        setMidiStatus(devices.length ? "MIDI keyboard: connected" : "MIDI keyboard: no input devices");
+      };
+
+      midiAccess.onstatechange = refreshDevices;
+      refreshDevices();
     } catch (error) {
       setMidiStatus(`MIDI keyboard: failed (${error instanceof Error ? error.message : "unknown error"})`);
     }
-  }, [handleMidiMessage]);
+  }, [handleMidiMessage, releaseMidiNotes]);
 
   const loadModule = useCallback(async (): Promise<boolean> => {
     if (loadedRef.current) {
@@ -581,7 +619,6 @@ export default function WebHarmonium() {
         loadedRef.current = true;
         setLoaded(true);
         setStatus("Ready");
-        await requestMidiAccess();
         return true;
       } catch (error) {
         setStatus(error instanceof Error ? error.message : "Failed to load the module.");
@@ -594,7 +631,7 @@ export default function WebHarmonium() {
 
     loadingPromiseRef.current = promise;
     return promise;
-  }, [buildSources, loadAudioBuffer, requestMidiAccess, transpose, updateReverbConnection, volume]);
+  }, [buildSources, loadAudioBuffer, transpose, updateReverbConnection, volume]);
 
   useEffect(() => {
     loadModuleRef.current = loadModule;
@@ -661,6 +698,11 @@ export default function WebHarmonium() {
     if (gainNodeRef.current) {
       gainNodeRef.current.gain.value = nextVolume / 100;
     }
+  };
+
+  const handleMidiDeviceChange = (nextMidiId: string) => {
+    releaseMidiNotes();
+    setSelectedMidiId(nextMidiId);
   };
 
   const handleReverbChange = (enabled: boolean) => {
@@ -892,7 +934,7 @@ export default function WebHarmonium() {
               >
                 <select
                   value={selectedMidiId}
-                  onChange={(event) => setSelectedMidiId(event.target.value)}
+                  onChange={(event) => handleMidiDeviceChange(event.target.value)}
                   className="h-10 w-full rounded-md border border-neutral-300 bg-white px-3 text-sm"
                 >
                   {midiDevices.length === 0 ? (
