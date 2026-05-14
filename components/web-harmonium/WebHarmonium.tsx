@@ -175,6 +175,39 @@ const NOTE_LABELS = [
   ["B", 196],
 ] as const;
 
+const WHITE_KEY_BOTTOM_RADIUS = 1.5;
+
+function buildWhiteKeyPath(points: string) {
+  const coordinates = points.split(" ").map((point) => {
+    const [x, y] = point.split(",").map(Number);
+    return { x, y };
+  });
+  const bottomY = Math.max(...coordinates.map(({ y }) => y));
+  const leftX = Math.min(...coordinates.map(({ x }) => x));
+  const rightX = Math.max(...coordinates.map(({ x }) => x));
+  const path = [`M ${coordinates[0].x} ${coordinates[0].y}`];
+
+  for (let index = 1; index < coordinates.length; index += 1) {
+    const { x, y } = coordinates[index];
+
+    if (y === bottomY && x === rightX) {
+      path.push(
+        `L ${x} ${y - WHITE_KEY_BOTTOM_RADIUS}`,
+        `Q ${x} ${y} ${x - WHITE_KEY_BOTTOM_RADIUS} ${y}`
+      );
+    } else if (y === bottomY && x === leftX) {
+      path.push(
+        `L ${x + WHITE_KEY_BOTTOM_RADIUS} ${y}`,
+        `Q ${x} ${y} ${x} ${y - WHITE_KEY_BOTTOM_RADIUS}`
+      );
+    } else {
+      path.push(`L ${x} ${y}`);
+    }
+  }
+
+  return `${path.join(" ")} Z`;
+}
+
 type AudioContextConstructor = typeof AudioContext;
 
 type MidiInput = {
@@ -704,7 +737,7 @@ export default function WebHarmonium() {
         </div>
 
         <>
-            <div className={`overflow-x-auto rounded-[22px] border border-slate-700 bg-slate-950 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_14px_30px_rgba(15,23,42,0.16)] ${loading ? "opacity-80" : ""}`}>
+            <div className={`overflow-x-auto bg-transparent p-4 ${loading ? "opacity-80" : ""}`}>
               <svg
                 width="588"
                 height="220"
@@ -746,37 +779,45 @@ export default function WebHarmonium() {
                   const isPressed = visuallyPressedNotes.has(KEYBOARD_MAP[pianoKey.keyName]);
                   const isWhite = pianoKey.type === "white";
 
-                  return (
+                  const keyProps = {
+                    className: "cursor-pointer transition-[filter,opacity,transform] duration-75 ease-out",
+                    fill: isWhite
+                      ? `url(#${isPressed ? "harmonium-white-key-pressed" : "harmonium-white-key"})`
+                      : `url(#${isPressed ? "harmonium-black-key-pressed" : "harmonium-black-key"})`,
+                    filter: `url(#${isWhite ? "harmonium-white-shadow" : "harmonium-black-shadow"})`,
+                    stroke: isWhite ? "#dbe3ec" : "#334155",
+                    strokeLinejoin: "round" as const,
+                    strokeWidth: isWhite ? "1.35" : "1",
+                    style: {
+                      transform: isPressed ? "translateY(1.4px)" : "translateY(0)",
+                      transformBox: "fill-box" as const,
+                      transformOrigin: "center",
+                    },
+                    onMouseDown: () => playKey(pianoKey.keyName),
+                    onMouseUp: stopKey,
+                    onMouseLeave: stopKey,
+                    onTouchStart: (event: React.TouchEvent<SVGPathElement | SVGPolygonElement>) => {
+                      event.preventDefault();
+                      playKey(pianoKey.keyName);
+                    },
+                    onTouchEnd: (event: React.TouchEvent<SVGPathElement | SVGPolygonElement>) => {
+                      event.preventDefault();
+                      stopKey();
+                    },
+                    onTouchCancel: stopKey,
+                  };
+
+                  return isWhite ? (
+                    <path
+                      key={pianoKey.keyName}
+                      d={buildWhiteKeyPath(pianoKey.points)}
+                      {...keyProps}
+                    />
+                  ) : (
                     <polygon
                       key={pianoKey.keyName}
                       points={pianoKey.points}
-                      className="cursor-pointer transition-[filter,opacity,transform] duration-75 ease-out"
-                      fill={
-                        isWhite
-                          ? `url(#${isPressed ? "harmonium-white-key-pressed" : "harmonium-white-key"})`
-                          : `url(#${isPressed ? "harmonium-black-key-pressed" : "harmonium-black-key"})`
-                      }
-                      filter={`url(#${isWhite ? "harmonium-white-shadow" : "harmonium-black-shadow"})`}
-                      stroke={isWhite ? "#dbe3ec" : "#334155"}
-                      strokeLinejoin="round"
-                      strokeWidth={isWhite ? "1.35" : "1"}
-                      style={{
-                        transform: isPressed ? "translateY(1.4px)" : "translateY(0)",
-                        transformBox: "fill-box",
-                        transformOrigin: "center",
-                      }}
-                      onMouseDown={() => playKey(pianoKey.keyName)}
-                      onMouseUp={stopKey}
-                      onMouseLeave={stopKey}
-                      onTouchStart={(event) => {
-                        event.preventDefault();
-                        playKey(pianoKey.keyName);
-                      }}
-                      onTouchEnd={(event) => {
-                        event.preventDefault();
-                        stopKey();
-                      }}
-                      onTouchCancel={stopKey}
+                      {...keyProps}
                     />
                   );
                 })}
