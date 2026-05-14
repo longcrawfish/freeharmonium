@@ -177,6 +177,11 @@ const NOTE_LABELS = [
 
 const WHITE_KEY_BOTTOM_RADIUS = 7;
 
+type IdleWindow = Window & {
+  requestIdleCallback?: (callback: IdleRequestCallback, options?: IdleRequestOptions) => number;
+  cancelIdleCallback?: (handle: number) => void;
+};
+
 function buildWhiteKeyPath(points: string) {
   const coordinates = points.split(" ").map((point) => {
     const [x, y] = point.split(",").map(Number);
@@ -206,6 +211,15 @@ function buildWhiteKeyPath(points: string) {
   }
 
   return `${path.join(" ")} Z`;
+}
+
+function isEditableTarget(target: EventTarget | null) {
+  return (
+    target instanceof HTMLInputElement ||
+    target instanceof HTMLTextAreaElement ||
+    target instanceof HTMLSelectElement ||
+    (target instanceof HTMLElement && target.isContentEditable)
+  );
 }
 
 type AudioContextConstructor = typeof AudioContext;
@@ -329,6 +343,36 @@ export default function WebHarmonium() {
     navigator.serviceWorker.register("/sw.js").catch(() => {
       // Offline support is optional; audio playback still works without it.
     });
+  }, []);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    const idleWindow = window as IdleWindow;
+    let timeoutId: number | undefined;
+    let idleId: number | undefined;
+
+    const prefetchAudioFiles = () => {
+      void Promise.allSettled([
+        fetch(SAMPLE_URL, { signal: controller.signal }),
+        fetch(REVERB_URL, { signal: controller.signal }),
+      ]);
+    };
+
+    if (idleWindow.requestIdleCallback) {
+      idleId = idleWindow.requestIdleCallback(prefetchAudioFiles, { timeout: 1500 });
+    } else {
+      timeoutId = window.setTimeout(prefetchAudioFiles, 500);
+    }
+
+    return () => {
+      controller.abort();
+      if (idleId !== undefined) {
+        idleWindow.cancelIdleCallback?.(idleId);
+      }
+      if (timeoutId !== undefined) {
+        window.clearTimeout(timeoutId);
+      }
+    };
   }, []);
 
   const setSourceNode = useCallback((index: number) => {
@@ -639,6 +683,10 @@ export default function WebHarmonium() {
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
+      if (isEditableTarget(event.target)) {
+        return;
+      }
+
       if (event.repeat) {
         return;
       }
@@ -660,6 +708,10 @@ export default function WebHarmonium() {
     };
 
     const handleKeyUp = (event: KeyboardEvent) => {
+      if (isEditableTarget(event.target)) {
+        return;
+      }
+
       const note = KEYBOARD_MAP[event.key];
       if (note !== undefined) {
         pressedNotesRef.current.delete(note);
