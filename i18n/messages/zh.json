@@ -110,9 +110,9 @@
     }
   },
   "Home": {
-    "title": "Next.js Starter",
-    "tagLine": "Next.js 多语言启动模板",
-    "description": "内置多语言支持的 Next.js 16 启动模板，助您快速构建面向全球的出海网站。简洁高效，开箱即用，完全优化的SEO基础架构。"
+    "title": "Web Harmonium",
+    "tagLine": "浏览器中的可演奏风琴",
+    "description": "直接在浏览器中使用电脑键盘、触屏或 MIDI 键盘演奏 harmonium。"
   },
   "Blog": {
     "title": "博客列表",

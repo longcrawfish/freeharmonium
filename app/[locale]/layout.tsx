@@ -33,14 +33,24 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Home" });
 
-  return constructMetadata({
+  const metadata = await constructMetadata({
     page: "Home",
     title: t("title"),
     description: t("description"),
+    images: ["/webharmonium/webharmonium.png"],
     locale: locale as Locale,
     path: `/`,
     canonicalUrl: `/`,
   });
+
+  return {
+    ...metadata,
+    manifest: "/manifest.json",
+    icons: {
+      icon: "/webharmonium/icons/webharmonium_016.png",
+      apple: "/webharmonium/icons/webharmonium_192.png",
+    },
+  };
 }
 
 export const viewport: Viewport = {

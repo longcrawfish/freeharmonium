@@ -12,10 +12,10 @@ const GITHUB_URL = 'https://github.com/weijunext'
 const DISCORD_URL = process.env.NEXT_PUBLIC_DISCORD_INVITE_URL
 
 export const siteConfig: SiteConfig = {
-  name: "Next.js Starter",
-  tagLine: 'Multilingual Next.js 16 Starter',
+  name: "Web Harmonium",
+  tagLine: 'Playable harmonium in the browser',
   description:
-    "A multilingual Next.js 16 starter with built-in i18n support. Launch your global-ready web application with a clean, efficient, and SEO-friendly foundation.",
+    "Play harmonium with your computer keyboard, touch screen, or MIDI keyboard directly in the browser.",
   url: BASE_URL,
   authors: [
     {
@@ -37,8 +37,8 @@ export const siteConfig: SiteConfig = {
   ],
   defaultNextTheme: 'system', // next-theme option: system | dark | light
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/logo.png",
-    apple: "/logo.png", // apple-touch-icon.png
+    icon: "/webharmonium/icons/webharmonium_016.png",
+    shortcut: "/webharmonium/icons/webharmonium_192.png",
+    apple: "/webharmonium/icons/webharmonium_192.png",
   },
 }

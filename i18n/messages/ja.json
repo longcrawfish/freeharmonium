@@ -110,9 +110,9 @@
     }
   },
   "Home": {
-    "title": "Next.js Starter",
-    "tagLine": "Next.js 多言語スターターテンプレート",
-    "description": "多言語対応機能を搭載したNext.js 15スターターテンプレート。SEO最適化済みで、グローバル展開可能なウェブアプリを効率的に構築できます。"
+    "title": "Web Harmonium",
+    "tagLine": "ブラウザで演奏できるハーモニウム",
+    "description": "PCキーボード、タッチ画面、MIDIキーボードでブラウザから直接ハーモニウムを演奏できます。"
   },
   "Blog": {
     "title": "ブログ一覧",
