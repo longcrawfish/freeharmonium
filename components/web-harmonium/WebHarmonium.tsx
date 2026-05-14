@@ -219,6 +219,7 @@ export default function WebHarmonium() {
   const [midiStatus, setMidiStatus] = useState("MIDI keyboard");
   const [midiDevices, setMidiDevices] = useState<MidiDevice[]>([]);
   const [selectedMidiId, setSelectedMidiId] = useState("");
+  const [visuallyPressedNotes, setVisuallyPressedNotes] = useState<Set<number>>(() => new Set());
 
   const contextRef = useRef<AudioContext | null>(null);
   const audioBufferRef = useRef<AudioBuffer | null>(null);
@@ -375,6 +376,22 @@ export default function WebHarmonium() {
     [setSourceNode]
   );
 
+  const showPressedKey = useCallback((note: number) => {
+    setVisuallyPressedNotes((current) => {
+      const next = new Set(current);
+      next.add(note);
+      return next;
+    });
+  }, []);
+
+  const hidePressedKey = useCallback((note: number) => {
+    setVisuallyPressedNotes((current) => {
+      const next = new Set(current);
+      next.delete(note);
+      return next;
+    });
+  }, []);
+
   const updateReverbConnection = useCallback((enabled: boolean) => {
     const gainNode = gainNodeRef.current;
     const reverbNode = reverbNodeRef.current;
@@ -413,6 +430,7 @@ export default function WebHarmonium() {
       if (command === 144) {
         if (velocity > 0) {
           pressedNotesRef.current.add(note);
+          showPressedKey(note);
           if (loadedRef.current) {
             noteOn(note);
           } else {
@@ -424,10 +442,12 @@ export default function WebHarmonium() {
           }
         } else {
           pressedNotesRef.current.delete(note);
+          hidePressedKey(note);
           noteOff(note);
         }
       } else if (command === 128) {
         pressedNotesRef.current.delete(note);
+        hidePressedKey(note);
         noteOff(note);
       } else if (command === 176 && note === 7) {
         const nextVolume = Math.round((100 * velocity) / 127);
@@ -438,7 +458,7 @@ export default function WebHarmonium() {
         }
       }
     },
-    [noteOff, noteOn]
+    [hidePressedKey, noteOff, noteOn, showPressedKey]
   );
 
   const requestMidiAccess = useCallback(async () => {
@@ -556,6 +576,7 @@ export default function WebHarmonium() {
       const note = KEYBOARD_MAP[event.key];
       if (note !== undefined) {
         pressedNotesRef.current.add(note);
+        showPressedKey(note);
         if (loadedRef.current) {
           noteOn(note);
         } else {
@@ -572,6 +593,7 @@ export default function WebHarmonium() {
       const note = KEYBOARD_MAP[event.key];
       if (note !== undefined) {
         pressedNotesRef.current.delete(note);
+        hidePressedKey(note);
         if (loadedRef.current) {
           noteOff(note);
         }
@@ -598,7 +620,7 @@ export default function WebHarmonium() {
       window.removeEventListener("keydown", handleKeyDown);
       window.removeEventListener("keyup", handleKeyUp);
     };
-  }, [noteOff, noteOn]);
+  }, [hidePressedKey, noteOff, noteOn, showPressedKey]);
 
   const handleVolumeChange = (nextVolume: number) => {
     setVolume(nextVolume);
@@ -645,6 +667,7 @@ export default function WebHarmonium() {
     const note = KEYBOARD_MAP[keyName];
     activePointerNoteRef.current = note;
     pressedNotesRef.current.add(note);
+    showPressedKey(note);
     if (loadedRef.current) {
       noteOn(note);
     } else {
@@ -659,6 +682,7 @@ export default function WebHarmonium() {
   const stopKey = () => {
     if (activePointerNoteRef.current !== null) {
       pressedNotesRef.current.delete(activePointerNoteRef.current);
+      hidePressedKey(activePointerNoteRef.current);
       if (loadedRef.current) {
         noteOff(activePointerNoteRef.current);
       }
@@ -680,7 +704,7 @@ export default function WebHarmonium() {
         </div>
 
         <>
-            <div className={`overflow-x-auto rounded-md border border-neutral-300 bg-white p-3 ${loading ? "opacity-80" : ""}`}>
+            <div className={`overflow-x-auto rounded-[22px] border border-slate-700 bg-slate-950 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_14px_30px_rgba(15,23,42,0.16)] ${loading ? "opacity-80" : ""}`}>
               <svg
                 width="588"
                 height="220"
@@ -689,38 +713,81 @@ export default function WebHarmonium() {
                 role="img"
                 aria-label="Playable harmonium keyboard"
               >
-                {PIANO_KEYS.map((pianoKey) => (
-                  <polygon
-                    key={pianoKey.keyName}
-                    points={pianoKey.points}
-                    className={
-                      pianoKey.type === "white"
-                        ? "cursor-pointer fill-white stroke-black hover:fill-neutral-300"
-                        : "cursor-pointer fill-black stroke-black hover:fill-neutral-700"
-                    }
-                    strokeWidth="1"
-                    onMouseDown={() => playKey(pianoKey.keyName)}
-                    onMouseUp={stopKey}
-                    onMouseLeave={stopKey}
-                    onTouchStart={(event) => {
-                      event.preventDefault();
-                      playKey(pianoKey.keyName);
-                    }}
-                    onTouchEnd={(event) => {
-                      event.preventDefault();
-                      stopKey();
-                    }}
-                    onTouchCancel={stopKey}
-                  />
-                ))}
+                <defs>
+                  <linearGradient id="harmonium-white-key" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stopColor="#ffffff" />
+                    <stop offset="62%" stopColor="#f8fafc" />
+                    <stop offset="100%" stopColor="#e2e8f0" />
+                  </linearGradient>
+                  <linearGradient id="harmonium-white-key-pressed" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stopColor="#dff7ef" />
+                    <stop offset="62%" stopColor="#c9f2e4" />
+                    <stop offset="100%" stopColor="#9de4c9" />
+                  </linearGradient>
+                  <linearGradient id="harmonium-black-key" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stopColor="#1f2937" />
+                    <stop offset="42%" stopColor="#070b12" />
+                    <stop offset="100%" stopColor="#020617" />
+                  </linearGradient>
+                  <linearGradient id="harmonium-black-key-pressed" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stopColor="#11363f" />
+                    <stop offset="46%" stopColor="#08272f" />
+                    <stop offset="100%" stopColor="#031016" />
+                  </linearGradient>
+                  <filter id="harmonium-white-shadow" x="-18%" y="-10%" width="136%" height="130%">
+                    <feDropShadow dx="0" dy="2" stdDeviation="1.1" floodColor="#020617" floodOpacity="0.2" />
+                  </filter>
+                  <filter id="harmonium-black-shadow" x="-24%" y="-18%" width="148%" height="150%">
+                    <feDropShadow dx="0" dy="3" stdDeviation="1.4" floodColor="#020617" floodOpacity="0.5" />
+                  </filter>
+                </defs>
+
+                {PIANO_KEYS.map((pianoKey) => {
+                  const isPressed = visuallyPressedNotes.has(KEYBOARD_MAP[pianoKey.keyName]);
+                  const isWhite = pianoKey.type === "white";
+
+                  return (
+                    <polygon
+                      key={pianoKey.keyName}
+                      points={pianoKey.points}
+                      className="cursor-pointer transition-[filter,opacity,transform] duration-75 ease-out"
+                      fill={
+                        isWhite
+                          ? `url(#${isPressed ? "harmonium-white-key-pressed" : "harmonium-white-key"})`
+                          : `url(#${isPressed ? "harmonium-black-key-pressed" : "harmonium-black-key"})`
+                      }
+                      filter={`url(#${isWhite ? "harmonium-white-shadow" : "harmonium-black-shadow"})`}
+                      stroke={isWhite ? "#dbe3ec" : "#334155"}
+                      strokeLinejoin="round"
+                      strokeWidth={isWhite ? "1.35" : "1"}
+                      style={{
+                        transform: isPressed ? "translateY(1.4px)" : "translateY(0)",
+                        transformBox: "fill-box",
+                        transformOrigin: "center",
+                      }}
+                      onMouseDown={() => playKey(pianoKey.keyName)}
+                      onMouseUp={stopKey}
+                      onMouseLeave={stopKey}
+                      onTouchStart={(event) => {
+                        event.preventDefault();
+                        playKey(pianoKey.keyName);
+                      }}
+                      onTouchEnd={(event) => {
+                        event.preventDefault();
+                        stopKey();
+                      }}
+                      onTouchCancel={stopKey}
+                    />
+                  );
+                })}
 
                 {WHITE_LABELS.map(([label, x]) => (
-                  <text key={label} x={x} y="65" fill="black" fontFamily="Courier New" fontSize="14">
+                  <text key={label} x={x} y="65" fill="#0f172a" fontFamily="Courier New" fontSize="14" className="pointer-events-none select-none">
                     {label}
                   </text>
                 ))}
                 {BLACK_LABELS.map(([label, x]) => (
-                  <text key={label} x={x} y="30" fill="white" fontFamily="Courier New" fontSize="14">
+                  <text key={label} x={x} y="30" fill="#f8fafc" fontFamily="Courier New" fontSize="14" className="pointer-events-none select-none">
                     {label}
                   </text>
                 ))}
@@ -733,6 +800,7 @@ export default function WebHarmonium() {
                     fontFamily="Courier New"
                     fontSize="14"
                     fontWeight="700"
+                    className="pointer-events-none select-none"
                   >
                     {label}
                   </text>
