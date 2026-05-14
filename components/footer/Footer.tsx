@@ -1,12 +1,8 @@
-import BuiltWithButton from "@/components/BuiltWithButton";
-import { TwitterX } from "@/components/social-icons/icons";
 import { siteConfig } from "@/config/site";
 import { Link as I18nLink } from "@/i18n/routing";
 import { FooterLink } from "@/types/common";
-import { GithubIcon, MailIcon } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
-import { SiBluesky, SiDiscord } from "react-icons/si";
 
 export default async function Footer() {
   const t = await getTranslations("Home");
@@ -34,76 +30,6 @@ export default async function Footer() {
                 </div>
 
                 <p className="text-sm p4-4 md:pr-12">{t("tagLine")}</p>
-
-                <div className="flex items-center gap-2">
-                  {siteConfig.socialLinks?.github && (
-                    <Link
-                      href={siteConfig.socialLinks.github}
-                      prefetch={false}
-                      target="_blank"
-                      rel="noreferrer nofollow noopener"
-                      aria-label="GitHub"
-                      title="View on GitHub"
-                      className="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-accent hover:text-accent-foreground"
-                    >
-                      <GithubIcon className="size-4" aria-hidden="true" />
-                    </Link>
-                  )}
-                  {siteConfig.socialLinks?.discord && (
-                    <Link
-                      href={siteConfig.socialLinks.discord}
-                      prefetch={false}
-                      target="_blank"
-                      rel="noreferrer nofollow noopener"
-                      aria-label="Discord"
-                      title="Join Discord"
-                      className="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-accent hover:text-accent-foreground"
-                    >
-                      <SiDiscord className="w-4 h-4" aria-hidden="true" />
-                    </Link>
-                  )}
-                  {siteConfig.socialLinks?.twitter && (
-                    <Link
-                      href={siteConfig.socialLinks.twitter}
-                      prefetch={false}
-                      target="_blank"
-                      rel="noreferrer nofollow noopener"
-                      aria-label="Twitter"
-                      title="View on Twitter"
-                      className="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-accent hover:text-accent-foreground"
-                    >
-                      <TwitterX className="w-4 h-4" aria-hidden="true" />
-                    </Link>
-                  )}
-                  {siteConfig.socialLinks?.bluesky && (
-                    <Link
-                      href={siteConfig.socialLinks.bluesky}
-                      prefetch={false}
-                      target="_blank"
-                      rel="noreferrer nofollow noopener"
-                      aria-label="Blue Sky"
-                      title="View on Bluesky"
-                      className="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-accent hover:text-accent-foreground"
-                    >
-                      <SiBluesky className="w-4 h-4" aria-hidden="true" />
-                    </Link>
-                  )}
-                  {siteConfig.socialLinks?.email && (
-                    <Link
-                      href={`mailto:${siteConfig.socialLinks.email}`}
-                      prefetch={false}
-                      target="_blank"
-                      rel="noreferrer nofollow noopener"
-                      aria-label="Email"
-                      title="Email"
-                      className="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-accent hover:text-accent-foreground"
-                    >
-                      <MailIcon className="w-4 h-4" />
-                    </Link>
-                  )}
-                </div>
-
-                <BuiltWithButton />
               </div>
             </div>
 
