@@ -14,18 +14,6 @@
       {
         "name": "サイトについて",
         "href": "/about"
-      },
-      {
-        "name": "Source Code",
-        "href": "https://github.com/weijunext/nextjs-starter",
-        "target": "_blank",
-        "rel": "noopener noreferrer nofollow"
-      },
-      {
-        "name": "Pro Version",
-        "href": "https://nexty.dev",
-        "target": "_blank",
-        "rel": "noopener noreferrer"
       }
     ]
   },
@@ -54,63 +42,12 @@
               "useA": true
             }
           ]
-        },
-        {
-          "title": "オープンソースプロジェクト",
-          "links": [
-            {
-              "href": "https://github.com/weijunext/nextjs-starter",
-              "name": "Next.js Starter",
-              "rel": "noopener noreferrer nofollow",
-              "target": "_blank"
-            },
-            {
-              "href": "https://github.com/weijunext/landing-page-boilerplate",
-              "name": "Landing Page Boilerplate",
-              "rel": "noopener noreferrer nofollow",
-              "target": "_blank"
-            },
-            {
-              "href": "https://github.com/weijunext/weekly-boilerplate",
-              "name": "Blog Boilerplate",
-              "rel": "noopener noreferrer nofollow",
-              "target": "_blank"
-            }
-          ]
-        },
-        {
-          "title": "その他の製品",
-          "links": [
-            {
-              "href": "https://nexty.dev/",
-              "name": "Nexty - SaaS Template",
-              "rel": "noopener noreferrer",
-              "target": "_blank"
-            },
-            {
-              "href": "https://myogimage.com/",
-              "name": "OG Image Generator",
-              "rel": "noopener noreferrer",
-              "target": "_blank"
-            }
-          ]
         }
       ]
-    },
-    "Newsletter": {
-      "title": "Next.js Starterのニュースレターに登録する",
-      "description": "Next.js Starterの最新のニュースと更新情報を入手します。",
-      "defaultErrorMessage": "有効なメールアドレスを入力してください。",
-      "successMessage": "登録が完了しました。",
-      "errorMessage": "登録に失敗しました。",
-      "errorMessage2": "登録に失敗しました。少し待ってから再試行してください。",
-      "subscribe": "登録する",
-      "subscribing": "登録中...",
-      "subscribed": "登録が完了しました。ありがとうございます。"
     }
   },
   "Home": {
-    "title": "Web Harmonium",
+    "title": "Free Harmonium",
     "tagLine": "ブラウザで演奏できるハーモニウム",
     "description": "PCキーボード、タッチ画面、MIDIキーボードでブラウザから直接ハーモニウムを演奏できます。"
   },

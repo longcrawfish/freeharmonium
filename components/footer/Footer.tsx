@@ -1,17 +1,14 @@
 import BuiltWithButton from "@/components/BuiltWithButton";
-import { Newsletter } from "@/components/footer/Newsletter";
 import { TwitterX } from "@/components/social-icons/icons";
 import { siteConfig } from "@/config/site";
 import { Link as I18nLink } from "@/i18n/routing";
 import { FooterLink } from "@/types/common";
 import { GithubIcon, MailIcon } from "lucide-react";
-import { getMessages, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 import { SiBluesky, SiDiscord } from "react-icons/si";
 
 export default async function Footer() {
-  const messages = await getMessages();
-
   const t = await getTranslations("Home");
   const tFooter = await getTranslations("Footer");
 
@@ -147,11 +144,6 @@ export default async function Footer() {
               </div>
             ))}
 
-            {messages.Footer.Newsletter && (
-              <div className="w-full flex-1">
-                <Newsletter />
-              </div>
-            )}
           </div>
 
           <div className="border-t border-gray-800 py-6 flex flex-col md:flex-row justify-between items-center">

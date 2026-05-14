@@ -12,7 +12,7 @@ const GITHUB_URL = 'https://github.com/weijunext'
 const DISCORD_URL = process.env.NEXT_PUBLIC_DISCORD_INVITE_URL
 
 export const siteConfig: SiteConfig = {
-  name: "Web Harmonium",
+  name: "Free Harmonium",
   tagLine: 'Playable harmonium in the browser',
   description:
     "Play harmonium with your computer keyboard, touch screen, or MIDI keyboard directly in the browser.",
