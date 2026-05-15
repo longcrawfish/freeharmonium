@@ -176,6 +176,8 @@ const NOTE_LABELS = [
 ] as const;
 
 const WHITE_KEY_BOTTOM_RADIUS = 7;
+const WHITE_KEY_GAP = 1;
+const WHITE_KEY_STROKE_WIDTH = 0.5;
 
 type IdleWindow = Window & {
   requestIdleCallback?: (callback: IdleRequestCallback, options?: IdleRequestOptions) => number;
@@ -190,17 +192,28 @@ function buildWhiteKeyPath(points: string) {
   const bottomY = Math.max(...coordinates.map(({ y }) => y));
   const leftX = Math.min(...coordinates.map(({ x }) => x));
   const rightX = Math.max(...coordinates.map(({ x }) => x));
-  const path = [`M ${coordinates[0].x} ${coordinates[0].y}`];
+  const visualCoordinates = coordinates.map(({ x, y }) => {
+    if (x === leftX && leftX > 0) {
+      return { x: x + WHITE_KEY_GAP / 2, y };
+    }
 
-  for (let index = 1; index < coordinates.length; index += 1) {
-    const { x, y } = coordinates[index];
+    if (x === rightX && rightX < 294) {
+      return { x: x - WHITE_KEY_GAP / 2, y };
+    }
 
-    if (y === bottomY && x === rightX) {
+    return { x, y };
+  });
+  const path = [`M ${visualCoordinates[0].x} ${visualCoordinates[0].y}`];
+
+  for (let index = 1; index < visualCoordinates.length; index += 1) {
+    const { x, y } = visualCoordinates[index];
+
+    if (y === bottomY && coordinates[index].x === rightX) {
       path.push(
         `L ${x} ${y - WHITE_KEY_BOTTOM_RADIUS}`,
         `Q ${x} ${y} ${x - WHITE_KEY_BOTTOM_RADIUS} ${y}`
       );
-    } else if (y === bottomY && x === leftX) {
+    } else if (y === bottomY && coordinates[index].x === leftX) {
       path.push(
         `L ${x + WHITE_KEY_BOTTOM_RADIUS} ${y}`,
         `Q ${x} ${y} ${x} ${y - WHITE_KEY_BOTTOM_RADIUS}`
@@ -903,7 +916,7 @@ export default function WebHarmonium() {
                     filter: `url(#${isWhite ? "harmonium-white-shadow" : "harmonium-black-shadow"})`,
                     stroke: isWhite ? "#dbe3ec" : "#334155",
                     strokeLinejoin: "round" as const,
-                    strokeWidth: isWhite ? "1.35" : "1",
+                    strokeWidth: isWhite ? WHITE_KEY_STROKE_WIDTH : "1",
                     style: {
                       transform: isPressed ? "translateY(1.4px)" : "translateY(0)",
                       transformBox: "fill-box" as const,
