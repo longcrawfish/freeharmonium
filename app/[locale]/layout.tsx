@@ -49,7 +49,7 @@ export async function generateMetadata({
     ...metadata,
     manifest: "/manifest.json",
     icons: {
-      icon: "/webharmonium/icons/webharmonium_016.png",
+      icon: "/webharmonium/icons/webharmonium_192.png",
       apple: "/webharmonium/icons/webharmonium_192.png",
     },
   };

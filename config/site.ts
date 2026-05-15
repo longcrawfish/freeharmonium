@@ -37,7 +37,7 @@ export const siteConfig: SiteConfig = {
   ],
   defaultNextTheme: 'system', // next-theme option: system | dark | light
   icons: {
-    icon: "/webharmonium/icons/webharmonium_016.png",
+    icon: "/webharmonium/icons/webharmonium_192.png",
     shortcut: "/webharmonium/icons/webharmonium_192.png",
     apple: "/webharmonium/icons/webharmonium_192.png",
   },
