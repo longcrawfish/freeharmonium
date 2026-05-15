@@ -60,6 +60,50 @@
       "swaram notation"
     ]
   },
+  "WebHarmonium": {
+    "title": "Free Harmonium：オンラインで演奏できる Web Harmonium",
+    "status": {
+      "initial": "演奏できます。最初の音で harmonium サンプルを読み込みます。",
+      "loading": "harmonium サンプルを読み込み中...",
+      "ready": "準備完了"
+    },
+    "controls": {
+      "volume": "音量：{volume}%",
+      "reverb": "リバーブ",
+      "enabled": "オン",
+      "disabled": "オフ",
+      "transpose": "移調 - {rootNote}",
+      "transposeShort": "移調",
+      "octave": "オクターブ",
+      "reeds": "リード"
+    },
+    "midi": {
+      "initial": "MIDI キーボード：更新をクリックして接続",
+      "unsupported": "MIDI キーボード：このブラウザでは対応していません",
+      "connected": "MIDI キーボード：接続済み",
+      "noDevices": "MIDI キーボード：入力デバイスがありません",
+      "failed": "MIDI キーボード：失敗しました（{error}）",
+      "input": "MIDI 入力",
+      "inputBy": "{manufacturer} の {name}",
+      "noInputSelected": "MIDI 入力が選択されていません"
+    },
+    "notation": {
+      "title": "記譜",
+      "placeholder": "鍵盤を弾くと swaram 記譜が記録されます。"
+    },
+    "aria": {
+      "loadingSamples": "サンプルを読み込み中",
+      "keyboard": "演奏できる harmonium キーボード",
+      "refreshMidi": "MIDI デバイスを更新",
+      "decrease": "{title}を下げる",
+      "increase": "{title}を上げる"
+    },
+    "errors": {
+      "webAudioUnsupported": "このブラウザは Web Audio に対応していません。",
+      "loadFailed": "モジュールの読み込みに失敗しました。",
+      "unknown": "不明なエラー"
+    }
+  },
   "Blog": {
     "title": "ブログ一覧",
     "description": "ブログ投稿の一覧"

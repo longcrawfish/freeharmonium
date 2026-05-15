@@ -1,6 +1,7 @@
 "use client";
 
 import { Minus, Plus, RefreshCw, Volume2, Waves } from "lucide-react";
+import { useTranslations } from "next-intl";
 import type { ReactNode } from "react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
@@ -268,16 +269,17 @@ type MidiDevice = {
 };
 
 export default function WebHarmonium() {
+  const t = useTranslations("WebHarmonium");
   const [loaded, setLoaded] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState("Ready to play. First note loads the harmonium samples.");
+  const [status, setStatus] = useState(t("status.initial"));
   const [volume, setVolume] = useState(30);
   const [useReverb, setUseReverb] = useState(false);
   const [transpose, setTranspose] = useState(0);
   const [octave, setOctave] = useState(DEFAULT_OCTAVE);
   const [stackCount, setStackCount] = useState(0);
   const [notation, setNotation] = useState("");
-  const [midiStatus, setMidiStatus] = useState("MIDI keyboard: click refresh to connect");
+  const [midiStatus, setMidiStatus] = useState(t("midi.initial"));
   const [midiDevices, setMidiDevices] = useState<MidiDevice[]>([]);
   const [selectedMidiId, setSelectedMidiId] = useState("");
   const [visuallyPressedNotes, setVisuallyPressedNotes] = useState<Set<number>>(() => new Set());
@@ -598,7 +600,7 @@ export default function WebHarmonium() {
     const midiNavigator = navigator as MidiNavigator;
 
     if (!midiNavigator.requestMIDIAccess) {
-      setMidiStatus("MIDI keyboard: not supported in this browser");
+      setMidiStatus(t("midi.unsupported"));
       return;
     }
 
@@ -620,7 +622,9 @@ export default function WebHarmonium() {
           };
           return {
             id: input.id,
-            label: `${input.name || "MIDI input"}${input.manufacturer ? ` by ${input.manufacturer}` : ""}`,
+            label: input.manufacturer
+              ? t("midi.inputBy", { name: input.name || t("midi.input"), manufacturer: input.manufacturer })
+              : input.name || t("midi.input"),
           };
         });
 
@@ -632,15 +636,15 @@ export default function WebHarmonium() {
 
           return devices[0]?.id || "";
         });
-        setMidiStatus(devices.length ? "MIDI keyboard: connected" : "MIDI keyboard: no input devices");
+        setMidiStatus(devices.length ? t("midi.connected") : t("midi.noDevices"));
       };
 
       midiAccess.onstatechange = refreshDevices;
       refreshDevices();
     } catch (error) {
-      setMidiStatus(`MIDI keyboard: failed (${error instanceof Error ? error.message : "unknown error"})`);
+      setMidiStatus(t("midi.failed", { error: error instanceof Error ? error.message : t("errors.unknown") }));
     }
-  }, [handleMidiMessage, releaseMidiNotes]);
+  }, [handleMidiMessage, releaseMidiNotes, t]);
 
   const loadModule = useCallback(async (): Promise<boolean> => {
     if (loadedRef.current) {
@@ -653,7 +657,7 @@ export default function WebHarmonium() {
 
     const promise = (async () => {
       setLoading(true);
-      setStatus("Loading harmonium samples...");
+      setStatus(t("status.loading"));
 
       try {
         const AudioContextCtor = (window.AudioContext ||
@@ -662,7 +666,7 @@ export default function WebHarmonium() {
           | undefined;
 
         if (!AudioContextCtor) {
-          throw new Error("Web Audio is not supported in this browser.");
+          throw new Error(t("errors.webAudioUnsupported"));
         }
 
         const context = contextRef.current || new AudioContextCtor();
@@ -697,10 +701,10 @@ export default function WebHarmonium() {
         updateReverbConnection(useReverbRef.current);
         loadedRef.current = true;
         setLoaded(true);
-        setStatus("Ready");
+        setStatus(t("status.ready"));
         return true;
       } catch (error) {
-        setStatus(error instanceof Error ? error.message : "Failed to load the module.");
+        setStatus(error instanceof Error ? error.message : t("errors.loadFailed"));
         return false;
       } finally {
         setLoading(false);
@@ -710,7 +714,7 @@ export default function WebHarmonium() {
 
     loadingPromiseRef.current = promise;
     return promise;
-  }, [buildSources, loadAudioBuffer, transpose, updateReverbConnection, volume]);
+  }, [buildSources, loadAudioBuffer, t, transpose, updateReverbConnection, volume]);
 
   useEffect(() => {
     loadModuleRef.current = loadModule;
@@ -858,11 +862,11 @@ export default function WebHarmonium() {
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-neutral-300 pb-4">
           <div>
             <h1 className="text-2xl font-semibold tracking-normal">
-              Free Harmonium: Web Harmonium You Can Play Online
+              {t("title")}
             </h1>
             <p className="mt-1 text-sm text-neutral-600">{status}</p>
           </div>
-          {loading && <RefreshCw className="h-5 w-5 animate-spin text-teal-700" aria-label="Loading samples" />}
+          {loading && <RefreshCw className="h-5 w-5 animate-spin text-teal-700" aria-label={t("aria.loadingSamples")} />}
         </div>
 
         <>
@@ -873,7 +877,7 @@ export default function WebHarmonium() {
                 viewBox="0 0 294 110"
                 className="mx-auto h-auto min-w-[588px] max-w-none touch-none"
                 role="img"
-                aria-label="Playable harmonium keyboard"
+                aria-label={t("aria.keyboard")}
               >
                 <defs>
                   <linearGradient id="harmonium-white-key" x1="0" x2="0" y1="0" y2="1">
@@ -979,7 +983,7 @@ export default function WebHarmonium() {
             </div>
 
             <div className="grid gap-4 md:grid-cols-2">
-              <ControlPanel title={`Volume: ${volume}%`} icon={<Volume2 className="h-5 w-5" />}>
+              <ControlPanel title={t("controls.volume", { volume })} icon={<Volume2 className="h-5 w-5" />}>
                 <input
                   type="range"
                   min="1"
@@ -990,9 +994,9 @@ export default function WebHarmonium() {
                 />
               </ControlPanel>
 
-              <ControlPanel title="Reverb" icon={<Waves className="h-5 w-5" />}>
+              <ControlPanel title={t("controls.reverb")} icon={<Waves className="h-5 w-5" />}>
                 <label className="flex items-center justify-between gap-4">
-                  <span className="text-sm text-neutral-600">{useReverb ? "Enabled" : "Disabled"}</span>
+                  <span className="text-sm text-neutral-600">{useReverb ? t("controls.enabled") : t("controls.disabled")}</span>
                   <input
                     type="checkbox"
                     checked={useReverb}
@@ -1002,9 +1006,9 @@ export default function WebHarmonium() {
                 </label>
               </ControlPanel>
 
-              <Stepper title={`Transpose - ${rootNote}`} value={transpose} onMinus={() => shiftSemitone(-1)} onPlus={() => shiftSemitone(1)} />
-              <Stepper title="Octave" value={octave} onMinus={() => shiftOctave(-1)} onPlus={() => shiftOctave(1)} />
-              <Stepper title="Reeds" value={stackCount} onMinus={() => changeStack(-1)} onPlus={() => changeStack(1)} />
+              <Stepper title={t("controls.transpose", { rootNote })} value={transpose} onMinus={() => shiftSemitone(-1)} onPlus={() => shiftSemitone(1)} decreaseLabel={t("aria.decrease", { title: t("controls.transposeShort") })} increaseLabel={t("aria.increase", { title: t("controls.transposeShort") })} />
+              <Stepper title={t("controls.octave")} value={octave} onMinus={() => shiftOctave(-1)} onPlus={() => shiftOctave(1)} decreaseLabel={t("aria.decrease", { title: t("controls.octave") })} increaseLabel={t("aria.increase", { title: t("controls.octave") })} />
+              <Stepper title={t("controls.reeds")} value={stackCount} onMinus={() => changeStack(-1)} onPlus={() => changeStack(1)} decreaseLabel={t("aria.decrease", { title: t("controls.reeds") })} increaseLabel={t("aria.increase", { title: t("controls.reeds") })} />
 
               <ControlPanel
                 title={midiStatus}
@@ -1013,7 +1017,7 @@ export default function WebHarmonium() {
                     type="button"
                     onClick={requestMidiAccess}
                     className="rounded-md p-1 hover:bg-neutral-100"
-                    aria-label="Refresh MIDI devices"
+                    aria-label={t("aria.refreshMidi")}
                   >
                     <RefreshCw className="h-5 w-5" />
                   </button>
@@ -1025,7 +1029,7 @@ export default function WebHarmonium() {
                   className="h-10 w-full rounded-md border border-neutral-300 bg-white px-3 text-sm"
                 >
                   {midiDevices.length === 0 ? (
-                    <option value="">No MIDI input selected</option>
+                    <option value="">{t("midi.noInputSelected")}</option>
                   ) : (
                     midiDevices.map((device) => (
                       <option key={device.id} value={device.id}>
@@ -1038,9 +1042,9 @@ export default function WebHarmonium() {
             </div>
 
             <div className="rounded-md border border-neutral-300 bg-white p-4">
-              <div className="text-sm font-medium text-neutral-700">Notation</div>
+              <div className="text-sm font-medium text-neutral-700">{t("notation.title")}</div>
               <div className="mt-2 min-h-10 min-w-0 max-w-full overflow-x-auto whitespace-nowrap rounded-md bg-neutral-100 px-3 py-2 font-mono text-lg">
-                {notation || <span className="text-sm text-neutral-400">Play keys to collect swaram notation.</span>}
+                {notation || <span className="text-sm text-neutral-400">{t("notation.placeholder")}</span>}
               </div>
             </div>
           </>
@@ -1074,11 +1078,15 @@ function Stepper({
   value,
   onMinus,
   onPlus,
+  decreaseLabel,
+  increaseLabel,
 }: {
   title: string;
   value: number;
   onMinus: () => void;
   onPlus: () => void;
+  decreaseLabel: string;
+  increaseLabel: string;
 }) {
   return (
     <ControlPanel title={title} icon={<span className="text-lg font-semibold">{value}</span>}>
@@ -1087,7 +1095,7 @@ function Stepper({
           type="button"
           onClick={onMinus}
           className="flex h-11 w-11 items-center justify-center rounded-md bg-neutral-200 hover:bg-neutral-300"
-          aria-label={`Decrease ${title}`}
+          aria-label={decreaseLabel}
         >
           <Minus className="h-5 w-5" />
         </button>
@@ -1096,7 +1104,7 @@ function Stepper({
           type="button"
           onClick={onPlus}
           className="flex h-11 w-11 items-center justify-center rounded-md bg-neutral-200 hover:bg-neutral-300"
-          aria-label={`Increase ${title}`}
+          aria-label={increaseLabel}
         >
           <Plus className="h-5 w-5" />
         </button>

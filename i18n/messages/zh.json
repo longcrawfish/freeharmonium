@@ -60,6 +60,50 @@
       "swaram notation"
     ]
   },
+  "WebHarmonium": {
+    "title": "Free Harmonium：可在线演奏的 Web Harmonium",
+    "status": {
+      "initial": "可以开始演奏。第一次按键时会加载 harmonium 采样。",
+      "loading": "正在加载 harmonium 采样...",
+      "ready": "已就绪"
+    },
+    "controls": {
+      "volume": "音量：{volume}%",
+      "reverb": "混响",
+      "enabled": "已开启",
+      "disabled": "已关闭",
+      "transpose": "转调 - {rootNote}",
+      "transposeShort": "转调",
+      "octave": "八度",
+      "reeds": "簧片"
+    },
+    "midi": {
+      "initial": "MIDI 键盘：点击刷新进行连接",
+      "unsupported": "MIDI 键盘：当前浏览器不支持",
+      "connected": "MIDI 键盘：已连接",
+      "noDevices": "MIDI 键盘：未发现输入设备",
+      "failed": "MIDI 键盘：连接失败（{error}）",
+      "input": "MIDI 输入",
+      "inputBy": "{name}，厂商：{manufacturer}",
+      "noInputSelected": "未选择 MIDI 输入"
+    },
+    "notation": {
+      "title": "记谱",
+      "placeholder": "演奏琴键以收集 swaram 记谱。"
+    },
+    "aria": {
+      "loadingSamples": "正在加载采样",
+      "keyboard": "可演奏的 harmonium 琴键",
+      "refreshMidi": "刷新 MIDI 设备",
+      "decrease": "降低{title}",
+      "increase": "提高{title}"
+    },
+    "errors": {
+      "webAudioUnsupported": "当前浏览器不支持 Web Audio。",
+      "loadFailed": "模块加载失败。",
+      "unknown": "未知错误"
+    }
+  },
   "Blog": {
     "title": "博客列表",
     "description": "博客列表"

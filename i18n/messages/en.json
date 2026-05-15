@@ -60,6 +60,50 @@
       "swaram notation"
     ]
   },
+  "WebHarmonium": {
+    "title": "Free Harmonium: Web Harmonium You Can Play Online",
+    "status": {
+      "initial": "Ready to play. First note loads the harmonium samples.",
+      "loading": "Loading harmonium samples...",
+      "ready": "Ready"
+    },
+    "controls": {
+      "volume": "Volume: {volume}%",
+      "reverb": "Reverb",
+      "enabled": "Enabled",
+      "disabled": "Disabled",
+      "transpose": "Transpose - {rootNote}",
+      "transposeShort": "Transpose",
+      "octave": "Octave",
+      "reeds": "Reeds"
+    },
+    "midi": {
+      "initial": "MIDI keyboard: click refresh to connect",
+      "unsupported": "MIDI keyboard: not supported in this browser",
+      "connected": "MIDI keyboard: connected",
+      "noDevices": "MIDI keyboard: no input devices",
+      "failed": "MIDI keyboard: failed ({error})",
+      "input": "MIDI input",
+      "inputBy": "{name} by {manufacturer}",
+      "noInputSelected": "No MIDI input selected"
+    },
+    "notation": {
+      "title": "Notation",
+      "placeholder": "Play keys to collect swaram notation."
+    },
+    "aria": {
+      "loadingSamples": "Loading samples",
+      "keyboard": "Playable harmonium keyboard",
+      "refreshMidi": "Refresh MIDI devices",
+      "decrease": "Decrease {title}",
+      "increase": "Increase {title}"
+    },
+    "errors": {
+      "webAudioUnsupported": "Web Audio is not supported in this browser.",
+      "loadFailed": "Failed to load the module.",
+      "unknown": "unknown error"
+    }
+  },
   "Blog": {
     "title": "Blog Posts",
     "description": "A list of blog posts"
