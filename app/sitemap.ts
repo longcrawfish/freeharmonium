@@ -1,9 +1,11 @@
 import { siteConfig } from '@/config/site'
-import { DEFAULT_LOCALE, LOCALES } from '@/i18n/routing'
+import { LOCALES } from '@/i18n/routing'
 import { getPosts } from '@/lib/getBlogs'
 import { MetadataRoute } from 'next'
 
 const siteUrl = siteConfig.url
+
+export const dynamic = 'force-static'
 
 type ChangeFrequency = 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never' | undefined
 
@@ -20,7 +22,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Generate multilingual pages
   const pages = LOCALES.flatMap(locale => {
     return staticPages.map(page => ({
-      url: `${siteUrl}${locale === DEFAULT_LOCALE ? '' : `/${locale}`}${page}`,
+      url: `${siteUrl}/${locale}${page}`,
       lastModified: new Date(),
       changeFrequency: 'daily' as ChangeFrequency,
       priority: page === '' ? 1.0 : 0.8,
@@ -31,7 +33,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     LOCALES.map(async (locale) => {
       const { posts } = await getPosts(locale)
       return posts.map(post => ({
-        url: `${siteUrl}${locale === DEFAULT_LOCALE ? '' : `/${locale}`}/blog${post.slug}`,
+        url: `${siteUrl}/${locale}/blog${post.slug}`,
         lastModified: post.metadata.updatedAt || post.date,
         changeFrequency: 'daily' as const,
         priority: 0.7,

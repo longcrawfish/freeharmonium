@@ -31,23 +31,7 @@ export function Newsletter() {
 
     try {
       setSubscribeStatus("loading");
-
-      const response = await fetch("/api/newsletter", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: normalizedEmailAddress }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || t("errorMessage"));
-      }
-
-      setSubscribeStatus("success");
-      setEmail("");
-      setErrorMessage("");
-      setTimeout(() => setSubscribeStatus("idle"), 5000);
+      throw new Error("Newsletter subscriptions are not available on this static deployment");
     } catch (error) {
       setSubscribeStatus("error");
       setErrorMessage(

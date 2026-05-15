@@ -1,6 +1,6 @@
 import WebHarmonium from "@/components/web-harmonium/WebHarmonium";
 import { siteConfig } from "@/config/site";
-import { DEFAULT_LOCALE, Locale } from "@/i18n/routing";
+import { Locale, LOCALES } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
 
 type PageProps = {
@@ -10,7 +10,7 @@ type PageProps = {
 export default async function Home({ params }: PageProps) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Home" });
-  const path = locale === DEFAULT_LOCALE ? "" : `/${locale}`;
+  const path = `/${locale}`;
   const pageUrl = `${siteConfig.url}${path}`;
 
   const jsonLd = {
@@ -48,4 +48,8 @@ export default async function Home({ params }: PageProps) {
       <WebHarmonium />
     </>
   );
+}
+
+export function generateStaticParams() {
+  return LOCALES.map((locale) => ({ locale }));
 }
