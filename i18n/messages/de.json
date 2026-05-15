@@ -1,0 +1,230 @@
+{
+  "LanguageDetection": {
+    "title": "Sprachvorschlag",
+    "description": "Die Sprache deines Browsers unterscheidet sich von der aktuellen Sprache der Website. Du kannst die Sprache jederzeit wechseln.",
+    "countdown": "Schließt in {countdown} Sekunden",
+    "switchTo": "Wechseln zu"
+  },
+  "Header": {
+    "links": [
+      {
+        "name": "Über uns",
+        "href": "/about"
+      }
+    ]
+  },
+  "Footer": {
+    "Copyright": "Copyright © {year} {name}. Alle Rechte vorbehalten.",
+    "PrivacyPolicy": "Datenschutzerklärung",
+    "TermsOfService": "Nutzungsbedingungen",
+    "Links": {
+      "groups": [
+        {
+          "title": "Sprachen",
+          "links": [
+            {
+              "href": "/en",
+              "name": "English",
+              "useA": true
+            },
+            {
+              "href": "/hi",
+              "name": "हिन्दी",
+              "useA": true
+            },
+            {
+              "href": "/bn",
+              "name": "বাংলা",
+              "useA": true
+            },
+            {
+              "href": "/ne",
+              "name": "नेपाली",
+              "useA": true
+            },
+            {
+              "href": "/de",
+              "name": "Deutsch",
+              "useA": true
+            },
+            {
+              "href": "/fr",
+              "name": "Français",
+              "useA": true
+            },
+            {
+              "href": "/ja",
+              "name": "日本語",
+              "useA": true
+            },
+            {
+              "href": "/zh",
+              "name": "中文",
+              "useA": true
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "Home": {
+    "title": "Free Harmonium",
+    "heroTitle": "Free Online Harmonium – mit Tastatur und MIDI spielen",
+    "tagLine": "Spielbares Harmonium im Browser",
+    "description": "Spiele Harmonium direkt im Browser mit Computertastatur, Touchscreen oder MIDI-Keyboard.",
+    "seoTitle": "Free Online Harmonium – mit Tastatur und MIDI spielen",
+    "seoDescription": "Spiele Harmonium kostenlos online mit realistischem Harmonium-Klang, Tastaturkürzeln, MIDI-Unterstützung, Transpose-Reglern und Übungstools für indische klassische Musik.",
+    "seoKeywords": [
+      "free harmonium",
+      "web harmonium",
+      "online harmonium",
+      "harmonium keyboard",
+      "play harmonium online",
+      "virtual harmonium",
+      "browser harmonium",
+      "swaram notation"
+    ]
+  },
+  "WebHarmonium": {
+    "title": "Free Online Harmonium – mit Tastatur und MIDI spielen",
+    "status": {
+      "initial": "Bereit zum Spielen. Die erste Note lädt die Harmonium-Samples.",
+      "loading": "Harmonium-Samples werden geladen...",
+      "ready": "Bereit"
+    },
+    "controls": {
+      "volume": "Lautstärke: {volume}%",
+      "reverb": "Hall",
+      "enabled": "Aktiviert",
+      "disabled": "Deaktiviert",
+      "transpose": "Transponieren - {rootNote}",
+      "transposeShort": "Transponieren",
+      "octave": "Oktave",
+      "reeds": "Zungen"
+    },
+    "midi": {
+      "initial": "MIDI-Keyboard: Zum Verbinden aktualisieren",
+      "unsupported": "MIDI-Keyboard: In diesem Browser nicht unterstützt",
+      "connected": "MIDI-Keyboard: verbunden",
+      "noDevices": "MIDI-Keyboard: keine Eingabegeräte",
+      "failed": "MIDI-Keyboard: fehlgeschlagen ({error})",
+      "input": "MIDI-Eingang",
+      "inputBy": "{name} von {manufacturer}",
+      "noInputSelected": "Kein MIDI-Eingang ausgewählt"
+    },
+    "notation": {
+      "title": "Notation",
+      "placeholder": "Spiele Tasten, um Swaram-Notation zu sammeln."
+    },
+    "aria": {
+      "loadingSamples": "Samples werden geladen",
+      "keyboard": "Spielbare Harmonium-Tastatur",
+      "refreshMidi": "MIDI-Geräte aktualisieren",
+      "decrease": "{title} verringern",
+      "increase": "{title} erhöhen"
+    },
+    "errors": {
+      "webAudioUnsupported": "Web Audio wird in diesem Browser nicht unterstützt.",
+      "loadFailed": "Das Modul konnte nicht geladen werden.",
+      "unknown": "unbekannter Fehler"
+    }
+  },
+  "HomeSeo": {
+    "browserRequirements": "Erfordert einen modernen Browser mit Web-Audio-Unterstützung und optionaler Web-MIDI-Unterstützung.",
+    "featureList": [
+      "Online-Harmonium-Tastatur",
+      "Tastaturkürzel",
+      "MIDI-Keyboard-Unterstützung",
+      "Transpose-Regler",
+      "Oktavregler",
+      "Hall",
+      "Swaram-Notation zum Üben"
+    ],
+    "sections": [
+      {
+        "title": "Was ist ein Harmonium",
+        "body": "Ein Harmonium ist ein Tasteninstrument mit Zungen, das häufig in indischer klassischer Musik, Bhajan, Kirtan, Gesangsübungen und devotionalem Gesang verwendet wird. Dieses Online-Harmonium hilft dir, Noten zu hören, Tonhöhen zu prüfen und Melodien im Browser nachzuvollziehen."
+      },
+      {
+        "title": "Riyaz üben",
+        "body": "Nutze das Online-Harmonium als stabile Tonhöhenreferenz für dein tägliches Riyaz. Wähle ein angenehmes Sa, spiele langsam, wiederhole kurze Phrasen und nutze Transpose- und Oktavregler, um den passenden Bereich für deine Stimme zu finden."
+      },
+      {
+        "title": "Harmonium Notes Guide",
+        "body": "Die visuelle Tastatur zeigt Harmonium-ähnliche weiße und schwarze Tasten mit Computertastatur-Kürzeln. Nutze die Notenlabels und den Swaram-Bereich, um Tastenpositionen mit Sa-Re-Ga-Ma-Mustern zu verbinden."
+      },
+      {
+        "title": "Sa Re Ga Ma Tutorial",
+        "body": "Beginne mit Sa Re Ga Ma Pa Dha Ni Sa und gehe dann mit Sa Ni Dha Pa Ma Ga Re Sa zurück. Übe langsam, bevor du das Tempo erhöhst. Wenn das Muster stabil ist, transponiere die Grundnote und wiederhole dieselbe Sargam-Übung."
+      },
+      {
+        "title": "Warum ein Online-Harmonium nutzen",
+        "body": "Ein Online-Harmonium ist praktisch für schnelle Tonhöhenchecks, Melodieideen, Unterricht und Übungen auf geteilten Geräten. Es ersetzt nicht Luft, Zungen und Spielgefühl eines echten Harmoniums, bietet aber ein schnelles und kostenloses Übungswerkzeug."
+      },
+      {
+        "title": "MIDI-Unterstützung",
+        "body": "Verbinde ein kompatibles MIDI-Keyboard, um das Browser-Harmonium mit physischen Tasten zu spielen. MIDI-Unterstützung verbindet die Bequemlichkeit eines Online-Instruments mit besserem Timing, Anschlag und Übungsfluss."
+      }
+    ],
+    "faqTitle": "Online-Harmonium FAQ",
+    "faq": [
+      {
+        "question": "Was ist ein Harmonium?",
+        "answer": "Ein Harmonium ist ein Tasteninstrument mit Zungen, das oft in indischer klassischer Musik, devotionalem Gesang und Gesangstraining verwendet wird. Luft strömt durch Zungen, während die Tasten die Noten auswählen."
+      },
+      {
+        "question": "Kann ich Harmonium online lernen?",
+        "answer": "Ja. Ein Online-Harmonium kann dir helfen, Tastenpositionen zu lernen, Sargam zu üben, Melodien zu verfolgen und ein Gefühl für Tonhöhen aufzubauen. Für fortgeschrittene Technik ist ein echtes Harmonium weiterhin hilfreich."
+      },
+      {
+        "question": "Ist das Online-Harmonium kostenlos?",
+        "answer": "Ja. Free Harmonium kann kostenlos im Browser gespielt werden, inklusive Tastaturkürzeln, Touch-Steuerung, MIDI-Eingabe, Transpose-Reglern und Swaram-Notation."
+      },
+      {
+        "question": "Wie übe ich Sargam?",
+        "answer": "Beginne langsam mit Sa Re Ga Ma Pa Dha Ni Sa und kehre mit Sa Ni Dha Pa Ma Ga Re Sa zurück. Halte die Tonhöhe stabil, wiederhole kurze Einheiten und übe mit Transpose in verschiedenen Grundtönen."
+      },
+      {
+        "question": "Kann ich ein MIDI-Keyboard verwenden?",
+        "answer": "Ja. Wenn dein Browser und Gerät Web MIDI unterstützen, kannst du ein kompatibles MIDI-Keyboard mit dem Online-Harmonium verwenden."
+      },
+      {
+        "question": "Unterstützt dieses Harmonium Transpose-Regler?",
+        "answer": "Ja. Mit dem Transpose-Regler kannst du die Grundnote verschieben, um sie an deinen Stimmumfang oder ein Stück anzupassen."
+      }
+    ]
+  },
+  "Blog": {
+    "title": "Blogbeiträge",
+    "description": "Eine Liste von Blogbeiträgen"
+  },
+  "About": {
+    "title": "Über uns",
+    "description": "Über die Website"
+  },
+  "TermsOfService": {
+    "title": "Nutzungsbedingungen",
+    "description": "Nutzungsbedingungen"
+  },
+  "PrivacyPolicy": {
+    "title": "Datenschutzerklärung",
+    "description": "Datenschutzerklärung"
+  },
+  "Showcase": {
+    "title": "Beispiele",
+    "description": "Entdecke Beispiele, die mit dieser Website verbunden sind.",
+    "visitSite": "Website besuchen"
+  },
+  "Submission": {
+    "badge": "Vorgestellt werden",
+    "title": "Produkt einreichen",
+    "description": "Hast du etwas gebaut? Teile es mit der Community.",
+    "productNameLabel": "Produktname",
+    "productNamePlaceholder": "Mein tolles Projekt",
+    "productUrlLabel": "Produkt-URL",
+    "submit": "Einreichen",
+    "submitting": "Wird gesendet...",
+    "successMessage": "Danke! Deine Einreichung wurde empfangen.",
+    "errorMessage": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
+  }
+}

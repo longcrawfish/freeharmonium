@@ -43,6 +43,16 @@
               "useA": true
             },
             {
+              "href": "/de",
+              "name": "Deutsch",
+              "useA": true
+            },
+            {
+              "href": "/fr",
+              "name": "Français",
+              "useA": true
+            },
+            {
               "href": "/ja",
               "name": "日本語",
               "useA": true

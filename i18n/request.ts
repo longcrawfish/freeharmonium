@@ -11,6 +11,10 @@ export default getRequestConfig(async ({ requestLocale }) => {
     locale = 'bn';
   } else if (locale?.startsWith('ne')) {
     locale = 'ne';
+  } else if (locale?.startsWith('de')) {
+    locale = 'de';
+  } else if (locale?.startsWith('fr')) {
+    locale = 'fr';
   } else if (locale?.startsWith('zh')) {
     locale = 'zh';
   } else if (locale?.startsWith('ja')) {

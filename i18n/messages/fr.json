@@ -1,0 +1,230 @@
+{
+  "LanguageDetection": {
+    "title": "Suggestion de langue",
+    "description": "La langue de votre navigateur est différente de la langue actuelle du site. Vous pouvez changer de langue à tout moment.",
+    "countdown": "Fermeture dans {countdown} secondes",
+    "switchTo": "Passer à"
+  },
+  "Header": {
+    "links": [
+      {
+        "name": "À propos",
+        "href": "/about"
+      }
+    ]
+  },
+  "Footer": {
+    "Copyright": "Copyright © {year} {name}. Tous droits réservés.",
+    "PrivacyPolicy": "Politique de confidentialité",
+    "TermsOfService": "Conditions d'utilisation",
+    "Links": {
+      "groups": [
+        {
+          "title": "Langues",
+          "links": [
+            {
+              "href": "/en",
+              "name": "English",
+              "useA": true
+            },
+            {
+              "href": "/hi",
+              "name": "हिन्दी",
+              "useA": true
+            },
+            {
+              "href": "/bn",
+              "name": "বাংলা",
+              "useA": true
+            },
+            {
+              "href": "/ne",
+              "name": "नेपाली",
+              "useA": true
+            },
+            {
+              "href": "/de",
+              "name": "Deutsch",
+              "useA": true
+            },
+            {
+              "href": "/fr",
+              "name": "Français",
+              "useA": true
+            },
+            {
+              "href": "/ja",
+              "name": "日本語",
+              "useA": true
+            },
+            {
+              "href": "/zh",
+              "name": "中文",
+              "useA": true
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "Home": {
+    "title": "Free Harmonium",
+    "heroTitle": "Free Online Harmonium – jouez avec clavier et MIDI",
+    "tagLine": "Harmonium jouable dans le navigateur",
+    "description": "Jouez de l'harmonium directement dans le navigateur avec un clavier d'ordinateur, un écran tactile ou un clavier MIDI.",
+    "seoTitle": "Free Online Harmonium – jouez avec clavier et MIDI",
+    "seoDescription": "Jouez de l'harmonium en ligne gratuitement avec un son réaliste, des raccourcis clavier, le support MIDI, des contrôles de transposition et des outils pour pratiquer la musique classique indienne.",
+    "seoKeywords": [
+      "free harmonium",
+      "web harmonium",
+      "online harmonium",
+      "harmonium keyboard",
+      "play harmonium online",
+      "virtual harmonium",
+      "browser harmonium",
+      "swaram notation"
+    ]
+  },
+  "WebHarmonium": {
+    "title": "Free Online Harmonium – jouez avec clavier et MIDI",
+    "status": {
+      "initial": "Prêt à jouer. La première note charge les samples d'harmonium.",
+      "loading": "Chargement des samples d'harmonium...",
+      "ready": "Prêt"
+    },
+    "controls": {
+      "volume": "Volume : {volume}%",
+      "reverb": "Réverbération",
+      "enabled": "Activée",
+      "disabled": "Désactivée",
+      "transpose": "Transposition - {rootNote}",
+      "transposeShort": "Transposition",
+      "octave": "Octave",
+      "reeds": "Anches"
+    },
+    "midi": {
+      "initial": "Clavier MIDI : cliquez sur actualiser pour connecter",
+      "unsupported": "Clavier MIDI : non pris en charge par ce navigateur",
+      "connected": "Clavier MIDI : connecté",
+      "noDevices": "Clavier MIDI : aucun périphérique d'entrée",
+      "failed": "Clavier MIDI : échec ({error})",
+      "input": "Entrée MIDI",
+      "inputBy": "{name} par {manufacturer}",
+      "noInputSelected": "Aucune entrée MIDI sélectionnée"
+    },
+    "notation": {
+      "title": "Notation",
+      "placeholder": "Jouez des touches pour collecter la notation swaram."
+    },
+    "aria": {
+      "loadingSamples": "Chargement des samples",
+      "keyboard": "Clavier harmonium jouable",
+      "refreshMidi": "Actualiser les périphériques MIDI",
+      "decrease": "Diminuer {title}",
+      "increase": "Augmenter {title}"
+    },
+    "errors": {
+      "webAudioUnsupported": "Web Audio n'est pas pris en charge par ce navigateur.",
+      "loadFailed": "Le module n'a pas pu être chargé.",
+      "unknown": "erreur inconnue"
+    }
+  },
+  "HomeSeo": {
+    "browserRequirements": "Nécessite un navigateur moderne avec Web Audio et, en option, Web MIDI.",
+    "featureList": [
+      "Clavier harmonium en ligne",
+      "Raccourcis clavier",
+      "Support clavier MIDI",
+      "Contrôles de transposition",
+      "Contrôles d'octave",
+      "Réverbération",
+      "Pratique de la notation swaram"
+    ],
+    "sections": [
+      {
+        "title": "Qu'est-ce qu'un harmonium",
+        "body": "Un harmonium est un instrument à clavier et à anches largement utilisé dans la musique classique indienne, le bhajan, le kirtan, la pratique vocale et le chant dévotionnel. Cet harmonium en ligne permet d'écouter les notes, de vérifier la hauteur et de suivre des mélodies dans le navigateur."
+      },
+      {
+        "title": "Comment pratiquer le riyaz",
+        "body": "Utilisez l'harmonium en ligne comme référence de hauteur stable pour le riyaz quotidien. Choisissez un Sa confortable, jouez lentement, répétez de courtes phrases et utilisez les contrôles de transposition et d'octave pour adapter la tessiture."
+      },
+      {
+        "title": "Guide des notes d'harmonium",
+        "body": "Le clavier visuel montre des touches blanches et noires de style harmonium avec des raccourcis clavier. Utilisez les étiquettes de notes et la zone de notation swaram pour relier les positions aux motifs Sa Re Ga Ma."
+      },
+      {
+        "title": "Tutoriel Sa Re Ga Ma",
+        "body": "Commencez par Sa Re Ga Ma Pa Dha Ni Sa, puis revenez avec Sa Ni Dha Pa Ma Ga Re Sa. Travaillez lentement avant d'augmenter la vitesse. Quand le motif est stable, transposez la note de base et répétez l'exercice."
+      },
+      {
+        "title": "Pourquoi utiliser un harmonium en ligne",
+        "body": "Un harmonium en ligne est utile pour vérifier rapidement une hauteur, explorer une mélodie, enseigner ou pratiquer sur un appareil partagé. Il ne remplace pas l'air, les anches et le toucher d'un vrai harmonium, mais offre un outil gratuit et immédiat."
+      },
+      {
+        "title": "Support MIDI",
+        "body": "Connectez un clavier MIDI compatible pour jouer l'harmonium du navigateur avec de vraies touches. Le MIDI combine la commodité d'un instrument en ligne avec un meilleur toucher, un meilleur timing et un flux de pratique plus naturel."
+      }
+    ],
+    "faqTitle": "FAQ Harmonium en ligne",
+    "faq": [
+      {
+        "question": "Qu'est-ce qu'un harmonium ?",
+        "answer": "Un harmonium est un instrument à clavier et à anches souvent utilisé dans la musique classique indienne, le chant dévotionnel et l'entraînement vocal. L'air passe à travers les anches tandis que les touches sélectionnent les notes."
+      },
+      {
+        "question": "Puis-je apprendre l'harmonium en ligne ?",
+        "answer": "Oui. Un harmonium en ligne peut aider à apprendre les positions des notes, pratiquer le sargam, suivre des mélodies et développer l'oreille. Pour une technique avancée, un vrai harmonium reste utile."
+      },
+      {
+        "question": "L'harmonium en ligne est-il gratuit ?",
+        "answer": "Oui. Free Harmonium est gratuit dans le navigateur, avec raccourcis clavier, contrôle tactile, entrée MIDI, transposition et notation swaram."
+      },
+      {
+        "question": "Comment pratiquer le sargam ?",
+        "answer": "Commencez lentement avec Sa Re Ga Ma Pa Dha Ni Sa, puis revenez avec Sa Ni Dha Pa Ma Ga Re Sa. Gardez la hauteur stable, répétez par courtes sessions et transposez vers différentes notes de base."
+      },
+      {
+        "question": "Puis-je utiliser un clavier MIDI ?",
+        "answer": "Oui. Si votre navigateur et votre appareil prennent en charge Web MIDI, vous pouvez connecter un clavier MIDI compatible pour jouer l'harmonium en ligne."
+      },
+      {
+        "question": "Cet harmonium prend-il en charge la transposition ?",
+        "answer": "Oui. Le contrôle de transposition permet de déplacer la note de base pour l'adapter à votre voix, à une tonalité ou à un morceau."
+      }
+    ]
+  },
+  "Blog": {
+    "title": "Articles de blog",
+    "description": "Liste des articles de blog"
+  },
+  "About": {
+    "title": "À propos",
+    "description": "À propos du site"
+  },
+  "TermsOfService": {
+    "title": "Conditions d'utilisation",
+    "description": "Conditions d'utilisation"
+  },
+  "PrivacyPolicy": {
+    "title": "Politique de confidentialité",
+    "description": "Politique de confidentialité"
+  },
+  "Showcase": {
+    "title": "Exemples",
+    "description": "Découvrez des exemples liés à ce site.",
+    "visitSite": "Voir le site"
+  },
+  "Submission": {
+    "badge": "Être présenté",
+    "title": "Soumettre votre produit",
+    "description": "Vous avez créé quelque chose ? Partagez-le avec la communauté.",
+    "productNameLabel": "Nom du produit",
+    "productNamePlaceholder": "Mon super projet",
+    "productUrlLabel": "URL du produit",
+    "submit": "Soumettre",
+    "submitting": "Envoi...",
+    "successMessage": "Merci ! Votre soumission a été reçue.",
+    "errorMessage": "Une erreur s'est produite. Veuillez réessayer."
+  }
+}
