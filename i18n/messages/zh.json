@@ -44,11 +44,11 @@
   },
   "Home": {
     "title": "Free Harmonium",
-    "heroTitle": "Free Harmonium: Web Harmonium You Can Play Online",
+    "heroTitle": "Free Harmonium：免费的印度风琴模拟器",
     "tagLine": "浏览器中的可演奏风琴",
     "description": "直接在浏览器中使用电脑键盘、触屏或 MIDI 键盘演奏 harmonium。",
-    "seoTitle": "Free Harmonium: Web Harmonium You Can Play Online",
-    "seoDescription": "在线演奏免费的 Web Harmonium，可使用电脑键盘、触屏或 MIDI 键盘练习 harmonium 与 swaram 记谱。",
+    "seoTitle": "Free Harmonium：免费的在线印度风琴模拟器",
+    "seoDescription": "免费在线演奏印度风琴，支持真实 harmonium 音色、电脑键盘快捷键、MIDI 键盘、转调控制，以及印度古典音乐和 swaram 练习工具。",
     "seoKeywords": [
       "free harmonium",
       "web harmonium",
@@ -103,6 +103,71 @@
       "loadFailed": "模块加载失败。",
       "unknown": "未知错误"
     }
+  },
+  "HomeSeo": {
+    "browserRequirements": "需要支持 Web Audio 的现代浏览器，可选支持 Web MIDI。",
+    "featureList": [
+      "在线印度风琴键盘",
+      "电脑键盘快捷键",
+      "MIDI 键盘支持",
+      "转调控制",
+      "八度控制",
+      "混响",
+      "Swaram 记谱练习"
+    ],
+    "sections": [
+      {
+        "title": "什么是 Harmonium",
+        "body": "Harmonium 通常译作印度风琴，是一种簧片键盘乐器，常用于印度古典音乐、bhajan、kirtan、声乐练习和伴唱。这个在线 harmonium 可以在浏览器中提供音高参考、旋律试奏和基础练习。"
+      },
+      {
+        "title": "如何练习 Riyaz",
+        "body": "Riyaz 是日常练习。你可以先选择适合自己音域的 Sa，慢速演奏短句，反复保持音准，再逐步练习更长的 swaram 片段。转调和八度控制可以帮助你找到更舒服的练习范围。"
+      },
+      {
+        "title": "Harmonium 音符指南",
+        "body": "页面上的琴键展示了 harmonium 风格的白键和黑键，并标出电脑键盘快捷键。你可以结合音名和 swaram 记谱区，理解键位与 Sa Re Ga Ma 的对应关系。"
+      },
+      {
+        "title": "Sa Re Ga Ma 教程",
+        "body": "从 Sa Re Ga Ma Pa Dha Ni Sa 开始，再反向练习 Sa Ni Dha Pa Ma Ga Re Sa。先慢速稳定重复，再提高速度。熟悉后可以使用转调，在不同根音上练习同一组 sargam。"
+      },
+      {
+        "title": "为什么使用在线 Harmonium",
+        "body": "在线印度风琴适合快速找音、临时试旋律、教学演示和移动设备练习。它不能完全替代真实乐器的风箱、簧片和手感，但可以作为免费、轻量、随时可用的练习工具。"
+      },
+      {
+        "title": "MIDI 支持",
+        "body": "如果浏览器和设备支持 Web MIDI，你可以连接兼容的 MIDI 键盘来演奏。这样既保留在线乐器的便利，也能使用实体键盘获得更自然的触键和节奏控制。"
+      }
+    ],
+    "faqTitle": "在线印度风琴常见问题",
+    "faq": [
+      {
+        "question": "什么是 harmonium？",
+        "answer": "Harmonium 是一种簧片键盘乐器，常用于印度古典音乐、宗教音乐、声乐训练和伴奏。它通过气流带动簧片发声，并用琴键选择音高。"
+      },
+      {
+        "question": "我可以在线学习 harmonium 吗？",
+        "answer": "可以。在线 harmonium 可以帮助你熟悉键位、练习 sargam、跟随旋律并建立音高感。更深入的手感和演奏技巧仍建议结合实体 harmonium 练习。"
+      },
+      {
+        "question": "在线 harmonium 是免费的吗？",
+        "answer": "是的。Free Harmonium 可以免费在浏览器中演奏，支持电脑键盘、触屏、MIDI 输入、转调控制和 swaram 记谱。"
+      },
+      {
+        "question": "如何练习 sargam？",
+        "answer": "先慢速练习 Sa Re Ga Ma Pa Dha Ni Sa，再反向练习 Sa Ni Dha Pa Ma Ga Re Sa。保持音准稳定，分短时段重复，并使用转调在不同根音上练习。"
+      },
+      {
+        "question": "我可以用 MIDI 键盘演奏这个在线 harmonium 吗？",
+        "answer": "可以。如果你的浏览器和设备支持 Web MIDI，可以连接兼容的 MIDI 键盘来演奏这个在线印度风琴。"
+      },
+      {
+        "question": "这个 harmonium 支持转调控制吗？",
+        "answer": "支持。转调控制可以改变根音，方便匹配你的声部音域、练习不同调性，或更舒服地跟随歌曲。"
+      }
+    ]
   },
   "Blog": {
     "title": "博客列表",

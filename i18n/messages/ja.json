@@ -44,11 +44,11 @@
   },
   "Home": {
     "title": "Free Harmonium",
-    "heroTitle": "Free Harmonium: Web Harmonium You Can Play Online",
+    "heroTitle": "Free Online Harmonium – キーボードとMIDIで演奏",
     "tagLine": "ブラウザで演奏できるハーモニウム",
     "description": "PCキーボード、タッチ画面、MIDIキーボードでブラウザから直接ハーモニウムを演奏できます。",
-    "seoTitle": "Free Harmonium: Web Harmonium You Can Play Online",
-    "seoDescription": "無料の Web Harmonium をオンラインで演奏できます。PCキーボード、タッチ画面、MIDIキーボードに対応したブラウザ用ハーモニウムキーボードです。",
+    "seoTitle": "Free Online Harmonium – キーボードとMIDIで演奏",
+    "seoDescription": "リアルな harmonium サウンド、PCキーボードショートカット、MIDI対応、移調コントロール、インド古典音楽の練習ツールを備えた無料オンライン harmonium です。",
     "seoKeywords": [
       "free harmonium",
       "web harmonium",
@@ -61,7 +61,7 @@
     ]
   },
   "WebHarmonium": {
-    "title": "Free Harmonium：オンラインで演奏できる Web Harmonium",
+    "title": "Free Online Harmonium – キーボードとMIDIで演奏",
     "status": {
       "initial": "演奏できます。最初の音で harmonium サンプルを読み込みます。",
       "loading": "harmonium サンプルを読み込み中...",
@@ -103,6 +103,71 @@
       "loadFailed": "モジュールの読み込みに失敗しました。",
       "unknown": "不明なエラー"
     }
+  },
+  "HomeSeo": {
+    "browserRequirements": "Web Audio に対応した最新ブラウザが必要です。Web MIDI 対応は任意です。",
+    "featureList": [
+      "オンライン harmonium キーボード",
+      "PCキーボードショートカット",
+      "MIDI キーボード対応",
+      "移調コントロール",
+      "オクターブコントロール",
+      "リバーブ",
+      "Swaram 記譜練習"
+    ],
+    "sections": [
+      {
+        "title": "Harmonium とは",
+        "body": "Harmonium はリードを使った鍵盤楽器で、インド古典音楽、bhajan、kirtan、声楽練習、伴奏で広く使われています。このオンライン harmonium は、実物が手元にないときでも音高確認や旋律の試奏に使えます。"
+      },
+      {
+        "title": "Riyaz の練習方法",
+        "body": "Riyaz は日々の練習です。まず歌いやすい Sa を選び、短いフレーズをゆっくり弾きながら音程を安定させます。移調とオクターブのコントロールを使うと、自分の声域に合う範囲で練習できます。"
+      },
+      {
+        "title": "Harmonium 音符ガイド",
+        "body": "画面の鍵盤には harmonium 風の白鍵と黒鍵、PCキーボードのショートカットが表示されます。音名と swaram 記譜エリアを見ながら、鍵盤の位置と Sa Re Ga Ma の関係を確認できます。"
+      },
+      {
+        "title": "Sa Re Ga Ma チュートリアル",
+        "body": "まず Sa Re Ga Ma Pa Dha Ni Sa をゆっくり弾き、次に Sa Ni Dha Pa Ma Ga Re Sa で戻ります。安定してから速度を上げ、慣れたら移調して別のルート音でも同じ sargam を練習します。"
+      },
+      {
+        "title": "オンライン Harmonium を使う理由",
+        "body": "オンライン harmonium は、音高確認、メロディの試奏、レッスン補助、モバイル端末での練習に便利です。実物の空気感やリードの反応は再現できませんが、無料ですぐ使える練習ツールになります。"
+      },
+      {
+        "title": "MIDI 対応",
+        "body": "対応する MIDI キーボードを接続すると、物理鍵盤でブラウザの harmonium を演奏できます。オンライン音源の手軽さを保ちながら、より自然なタイミングとタッチで練習できます。"
+      }
+    ],
+    "faqTitle": "オンライン Harmonium FAQ",
+    "faq": [
+      {
+        "question": "harmonium とは何ですか？",
+        "answer": "Harmonium はリード式の鍵盤楽器で、インド古典音楽、祈りの歌、声楽練習、伴奏でよく使われます。空気をリードに通し、鍵盤で音を選んで鳴らします。"
+      },
+      {
+        "question": "harmonium をオンラインで学べますか？",
+        "answer": "はい。オンライン harmonium は鍵盤位置、sargam、旋律、音高感覚の練習に役立ちます。より深い奏法や手の感覚を身につけるには、実物の harmonium での練習も有効です。"
+      },
+      {
+        "question": "オンライン harmonium は無料ですか？",
+        "answer": "はい。Free Harmonium はブラウザで無料で演奏できます。PCキーボード、タッチ操作、MIDI入力、移調、swaram 記譜を利用できます。"
+      },
+      {
+        "question": "sargam はどう練習しますか？",
+        "answer": "Sa Re Ga Ma Pa Dha Ni Sa をゆっくり練習し、Sa Ni Dha Pa Ma Ga Re Sa で戻ります。短い練習を繰り返し、移調を使って別のルート音でも同じパターンを練習します。"
+      },
+      {
+        "question": "このオンライン harmonium で MIDI キーボードを使えますか？",
+        "answer": "はい。ブラウザとデバイスが Web MIDI に対応していれば、互換性のある MIDI キーボードでオンライン harmonium を演奏できます。"
+      },
+      {
+        "question": "この harmonium は移調コントロールに対応していますか？",
+        "answer": "はい。移調コントロールでルート音を変えられるため、声域に合わせたり、別のキーで練習したりできます。"
+      }
+    ]
   },
   "Blog": {
     "title": "ブログ一覧",

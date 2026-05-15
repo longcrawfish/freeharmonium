@@ -44,11 +44,11 @@
   },
   "Home": {
     "title": "Free Harmonium",
-    "heroTitle": "Free Harmonium: Web Harmonium You Can Play Online",
+    "heroTitle": "Free Online Harmonium – Play Harmonium with Keyboard & MIDI Support",
     "tagLine": "Playable harmonium in the browser",
     "description": "Play harmonium with your computer keyboard, touch screen, or MIDI keyboard directly in the browser.",
-    "seoTitle": "Free Harmonium: Web Harmonium You Can Play Online",
-    "seoDescription": "Play a free web harmonium online with your computer keyboard, touch screen, or MIDI keyboard. Practice swaram notation and enjoy a browser-based harmonium keyboard.",
+    "seoTitle": "Free Online Harmonium – Play Harmonium with Keyboard & MIDI Support",
+    "seoDescription": "Play harmonium online for free with real harmonium sound, keyboard shortcuts, MIDI support, transpose controls, and Indian classical music practice tools.",
     "seoKeywords": [
       "free harmonium",
       "web harmonium",
@@ -61,7 +61,7 @@
     ]
   },
   "WebHarmonium": {
-    "title": "Free Harmonium: Web Harmonium You Can Play Online",
+    "title": "Free Online Harmonium – Play Harmonium with Keyboard & MIDI Support",
     "status": {
       "initial": "Ready to play. First note loads the harmonium samples.",
       "loading": "Loading harmonium samples...",
@@ -103,6 +103,71 @@
       "loadFailed": "Failed to load the module.",
       "unknown": "unknown error"
     }
+  },
+  "HomeSeo": {
+    "browserRequirements": "Requires a modern browser with Web Audio support and optional Web MIDI support.",
+    "featureList": [
+      "Online harmonium keyboard",
+      "Computer keyboard shortcuts",
+      "MIDI keyboard support",
+      "Transpose controls",
+      "Octave controls",
+      "Reverb",
+      "Swaram notation practice"
+    ],
+    "sections": [
+      {
+        "title": "What is Harmonium",
+        "body": "A harmonium is a reed keyboard instrument used widely in Indian classical music, bhajan, kirtan, vocal practice, and devotional singing. This online harmonium gives you a practical browser-based way to hear harmonium notes, test pitch, and follow melodies when a physical instrument is not nearby."
+      },
+      {
+        "title": "How to Practice Riyaz",
+        "body": "Use the online harmonium as a steady pitch reference for daily riyaz. Start with a comfortable Sa, play slowly, repeat short phrases, and keep your voice or fingers aligned with the drone-like reference. The transpose and octave controls help you choose a practical range for vocal practice."
+      },
+      {
+        "title": "Harmonium Notes Guide",
+        "body": "The visual keyboard shows harmonium-style white and black keys with computer shortcuts. Use the note labels and swaram notation area to connect key positions with Sa Re Ga Ma patterns, then build confidence by repeating simple ascending and descending note groups."
+      },
+      {
+        "title": "Sa Re Ga Ma Tutorial",
+        "body": "Begin with Sa Re Ga Ma Pa Dha Ni Sa, then return as Sa Ni Dha Pa Ma Ga Re Sa. Practice slowly before increasing speed. Once the pattern feels stable, use transpose to shift the root note and repeat the same sargam exercise in a new pitch."
+      },
+      {
+        "title": "Why Use Online Harmonium",
+        "body": "An online harmonium is useful for quick pitch checks, melody exploration, teaching, and practice on shared devices. It cannot replace the air, reeds, and feel of a real harmonium, but it gives you a fast and free tool for Indian classical music practice."
+      },
+      {
+        "title": "MIDI Support",
+        "body": "Connect a compatible MIDI keyboard to play the browser harmonium with a more familiar keybed. MIDI support lets you keep the convenience of an online instrument while using physical keys for better timing, touch, and practice flow."
+      }
+    ],
+    "faqTitle": "Online Harmonium FAQ",
+    "faq": [
+      {
+        "question": "What is harmonium?",
+        "answer": "A harmonium is a reed-based keyboard instrument often used in Indian classical music, devotional singing, and vocal training. It produces sound by pushing air through reeds while notes are selected with keys."
+      },
+      {
+        "question": "Can I learn harmonium online?",
+        "answer": "Yes. An online harmonium can help you learn note positions, practice sargam, follow melodies, and build pitch awareness. For advanced technique and hand control, it is still helpful to practice on a physical harmonium as well."
+      },
+      {
+        "question": "Is online harmonium free?",
+        "answer": "Yes. Free Harmonium is available to play in the browser for free. You can use keyboard shortcuts, touch controls, MIDI input, transpose controls, and swaram notation without installing an app."
+      },
+      {
+        "question": "How to practice sargam?",
+        "answer": "Start slowly with Sa Re Ga Ma Pa Dha Ni Sa and return with Sa Ni Dha Pa Ma Ga Re Sa. Keep the pitch steady, repeat in short sessions, and use transpose controls to practice the same pattern from different root notes."
+      },
+      {
+        "question": "Can I use a MIDI keyboard with this online harmonium?",
+        "answer": "Yes. If your browser and device support Web MIDI, you can connect a compatible MIDI keyboard and use it to play the online harmonium."
+      },
+      {
+        "question": "Does this harmonium support transpose controls?",
+        "answer": "Yes. The transpose control lets you shift the root note so you can match your vocal range, practice in different pitches, or follow a song more comfortably."
+      }
+    ]
   },
   "Blog": {
     "title": "Blog Posts",

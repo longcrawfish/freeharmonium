@@ -38,7 +38,7 @@ export async function constructMetadata({
 
   // build full title
   const finalTitle = page === 'Home'
-    ? `${pageTitle} - ${t('tagLine')}`
+    ? pageTitle
     : `${pageTitle} | ${t('title')}`
 
   // build image URLs
