@@ -1,99 +1,42 @@
 ---
 title: 关于
-description: 关于 Next.js Starter 多语言启动模板
-lastUpdated: 2025-02-19
+description: 关于 Free Harmonium，一个可在浏览器中演奏的在线 harmonium
+lastUpdated: 2026-05-15
 ---
 
-> 更新日期：2025-02-19
+> 更新日期：2026-05-15
 
-# 关于 Next.js Starter
+# 关于 Free Harmonium
 
-Next.js Starter 是一个功能完备的 Next.js 16 多语言启动模板，旨在帮助开发者快速构建面向全球的网站。它内置了多语言支持、现代 UI 设计、深色/浅色主题切换、响应式布局、MDX 博客系统、SEO 优化以及多种统计分析工具。
+Free Harmonium 是一个可以直接在浏览器中演奏的在线 harmonium。它不需要安装软件，适合快速练习、寻找旋律、确认音高，或者在身边没有实体 harmonium 时临时使用。
 
-## ✨ 主要特性
+你可以用电脑键盘、触摸屏，也可以连接兼容的 MIDI 键盘来演奏。这个网站的目标不是替代真正的乐器，而是提供一个随手可用、反应直接的练习工具。
 
-- 🌐 **多语言支持**：内置中文、英文、日语的国际化支持，轻松实现多语言网站。
-- 🎨 **现代 UI 设计**：基于 Tailwind CSS 的现代 UI 设计，简洁美观。
-- 🌙 **深色/浅色主题切换**：支持用户自由切换深色和浅色主题。
-- 📱 **响应式布局**：适配各种设备，确保在移动端和桌面端都有良好的用户体验。
-- 📝 **MDX 博客系统**：支持使用 MDX 编写博客文章，灵活且强大。
-- 🔍 **SEO 优化**：内置完整的 SEO 优化方案，包括自动生成 sitemap.xml 和 robots.txt。
-- 📊 **统计分析**：集成 Google Analytics、Baidu Analytics、Google Adsense 和 Vercel Analytics，方便进行数据追踪。
-- 🌿 **环保性能**：在 [Website Carbon](https://www.websitecarbon.com/website/nextjsstarter-io/) 上获得 A+ 评级，成为最节能的网站之一。
+## 你可以用它做什么
 
-## 🚀 快速开始
+- **直接在浏览器里演奏**，打开网页就能使用可视化琴键。
+- **使用多种输入方式**，支持电脑键盘、触摸屏和 MIDI 键盘。
+- **练习 swaram 记谱**，页面会记录你演奏出的音符。
+- **调整演奏状态**，包括音量、八度、转调、延音和混响。
+- **快速开始练习**，采样会在第一次演奏时加载。
 
-1. 克隆项目：
-    ```bash
-    git clone https://github.com/weijunext/nextjs-starter.git
-    ```
+## 为什么做这个网站
 
-2. 安装依赖：
-    ```bash
-    npm install
-    ```
+真正的 harmonium 有风箱、木质琴体、簧片和手感，这些不是网页能完全复刻的。Free Harmonium 更像是一个轻量的练习伙伴：当你需要参考音高、临时试旋律、练习 swaram 片段，或者在移动设备上快速确认一段音乐时，它能马上派上用场。
 
-3. 复制环境变量文件：
-    ```bash
-    cp .env.example .env
-    ```
+它适合这些场景：
 
-4. 启动开发服务器：
-    ```bash
-    npm run dev
-    ```
+- 声乐练习和音高参考。
+- 熟悉 harmonium 风格键盘的音位。
+- 排练前快速试 swaram 乐句。
+- 在手机、平板或共享电脑上临时找旋律。
 
-访问 [http://localhost:3000](http://localhost:3000) 查看你的应用。
+## 为浏览器而设计
 
-## ⚙️ 配置
+Free Harmonium 使用浏览器的 Web Audio 能力运行。你不需要注册账号，也不需要安装应用。打开网站，按下第一个音，就可以开始练习。
 
-1. **基础配置**：
-    - 修改 `config/site.ts` 配置网站信息。
-    - 更新 `public/` 下的图标和 logo。
-    - 配置 `app/sitemap.ts` 和 `app/robots.ts`。
+界面尽量保持直接：琴键是主角，常用控制放在靠近乐器的位置，让反复练习时不用在复杂页面里来回切换。
 
-2. **多语言配置**：
-    - 在 `i18n/messages/` 下添加或修改语言文件。
-    - 在 `i18n/routing.ts` 中配置支持的语言。
-    - 在 `middleware.ts` 中配置多语言路由。
+## 反馈
 
-## 📝 内容管理
-
-### 博客文章
-在 `blog/[locale]` 目录下创建 MDX 文件，支持以下格式：
-```markdown
----
-title: 文章标题
-description: 文章描述
-image: /image.png
-slug: /url-path
-tags: tag1,tag2
-date: 2025-02-20
-visible: published
-pin: true
----
-
-文章内容...
-```
-
-### 静态页面
-在 `content/[page]/[locale].mdx` 下管理静态页面内容。
-
-## 📄 许可证
-
-Next.js Starter 采用 MIT 许可证，您可以自由使用、修改和分发。
-
-## 🤝 贡献
-
-欢迎提交 Issue 和 Pull Request！您的贡献将帮助我们不断改进这个项目。
-
-## 关于作者
-
-专注于 Next.js 全栈开发，欢迎探讨开发、咨询与培训等合作机会，联系微信：bigye_chengpu
-
-- [Github](https://github.com/weijunext)
-- [Twitter/X](https://twitter.com/weijunext)
-- [博客 - J实验室](https://weijunext.com)
-- [Medium](https://medium.com/@weijunext)
-- [掘金](https://juejin.cn/user/26044008768029)
-- [知乎](https://www.zhihu.com/people/mo-mo-mo-89-12-11)
+如果你发现琴键布局、声音表现、MIDI 连接或多语言内容有问题，欢迎反馈。这个项目会优先改进真实演奏和练习中遇到的实际问题。
