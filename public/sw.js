@@ -3,7 +3,7 @@ const CACHE_NAME = "web-harmonium-v1";
 const ASSETS = [
   "/",
   "/manifest.json",
-  "/webharmonium/harmonium-kannan-orig.wav",
+  "/webharmonium/audio-harmonium.wav",
   "/webharmonium/reverb.wav",
   "/webharmonium/webharmonium.png",
   "/webharmonium/icons/webharmonium_016.png",

@@ -4,7 +4,7 @@ import { Minus, Plus, RefreshCw, Volume2, Waves } from "lucide-react";
 import type { ReactNode } from "react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-const SAMPLE_URL = "/webharmonium/harmonium-kannan-orig.wav";
+const SAMPLE_URL = "/webharmonium/audio-harmonium.wav";
 const REVERB_URL = "/webharmonium/reverb.wav";
 const LOOP_START = 0.5;
 const MIDDLE_C = 60;
