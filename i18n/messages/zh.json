@@ -8,10 +8,6 @@
   "Header": {
     "links": [
       {
-        "name": "博客",
-        "href": "/blog"
-      },
-      {
         "name": "关于",
         "href": "/about"
       }

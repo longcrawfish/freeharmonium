@@ -8,10 +8,6 @@
   "Header": {
     "links": [
       {
-        "name": "ブログ",
-        "href": "/blog"
-      },
-      {
         "name": "サイトについて",
         "href": "/about"
       }
