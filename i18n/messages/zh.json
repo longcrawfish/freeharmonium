@@ -61,7 +61,7 @@
     ]
   },
   "WebHarmonium": {
-    "title": "Free Harmonium：可在线演奏的 Web Harmonium",
+    "title": "Free Harmonium：免费的印度风琴模拟器",
     "status": {
       "initial": "可以开始演奏。第一次按键时会加载 harmonium 采样。",
       "loading": "正在加载 harmonium 采样...",
