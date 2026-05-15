@@ -1,6 +1,6 @@
 import { SiteConfig } from "@/types/siteConfig";
 
-export const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://nextjsstarter.io";
+export const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://freeharmonium.com";
 
 export const SOURCE_CODE_URL = "https://github.com/weijunext/nextjs-starter";
 export const PRO_VERSION = "https://nexty.dev";
