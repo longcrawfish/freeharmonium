@@ -28,13 +28,28 @@
               "useA": true
             },
             {
-              "href": "/zh",
-              "name": "中文",
+              "href": "/hi",
+              "name": "हिन्दी",
+              "useA": true
+            },
+            {
+              "href": "/bn",
+              "name": "বাংলা",
+              "useA": true
+            },
+            {
+              "href": "/ne",
+              "name": "नेपाली",
               "useA": true
             },
             {
               "href": "/ja",
               "name": "日本語",
+              "useA": true
+            },
+            {
+              "href": "/zh",
+              "name": "中文",
               "useA": true
             }
           ]

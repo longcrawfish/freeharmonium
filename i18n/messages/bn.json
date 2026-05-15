@@ -1,0 +1,220 @@
+{
+  "LanguageDetection": {
+    "title": "ভাষা পরামর্শ",
+    "description": "আপনার ব্রাউজারের ভাষা বর্তমান সাইটের ভাষা থেকে আলাদা। আপনি যেকোনো সময় ভাষা বদলাতে পারেন।",
+    "countdown": "{countdown} সেকেন্ড পরে বন্ধ হবে",
+    "switchTo": "বদলান"
+  },
+  "Header": {
+    "links": [
+      {
+        "name": "সম্পর্কে",
+        "href": "/about"
+      }
+    ]
+  },
+  "Footer": {
+    "Copyright": "কপিরাইট © {year} {name} সর্বস্বত্ব সংরক্ষিত।",
+    "PrivacyPolicy": "গোপনীয়তা নীতি",
+    "TermsOfService": "সেবার শর্তাবলি",
+    "Links": {
+      "groups": [
+        {
+          "title": "ভাষা",
+          "links": [
+            {
+              "href": "/en",
+              "name": "English",
+              "useA": true
+            },
+            {
+              "href": "/hi",
+              "name": "हिन्दी",
+              "useA": true
+            },
+            {
+              "href": "/bn",
+              "name": "বাংলা",
+              "useA": true
+            },
+            {
+              "href": "/ne",
+              "name": "नेपाली",
+              "useA": true
+            },
+            {
+              "href": "/ja",
+              "name": "日本語",
+              "useA": true
+            },
+            {
+              "href": "/zh",
+              "name": "中文",
+              "useA": true
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "Home": {
+    "title": "Free Harmonium",
+    "heroTitle": "Free Online Harmonium – কীবোর্ড ও MIDI দিয়ে বাজান",
+    "tagLine": "ব্রাউজারে বাজানো যায় এমন harmonium",
+    "description": "কম্পিউটার কীবোর্ড, টাচ স্ক্রিন বা MIDI কীবোর্ড দিয়ে সরাসরি ব্রাউজারে harmonium বাজান।",
+    "seoTitle": "Free Online Harmonium – কীবোর্ড ও MIDI দিয়ে বাজান",
+    "seoDescription": "বাস্তব harmonium sound, keyboard shortcuts, MIDI support, transpose controls এবং Indian classical music practice tools সহ বিনামূল্যে online harmonium বাজান।",
+    "seoKeywords": [
+      "free harmonium",
+      "web harmonium",
+      "online harmonium",
+      "harmonium keyboard",
+      "play harmonium online",
+      "virtual harmonium",
+      "browser harmonium",
+      "swaram notation"
+    ]
+  },
+  "WebHarmonium": {
+    "title": "Free Online Harmonium – কীবোর্ড ও MIDI দিয়ে বাজান",
+    "status": {
+      "initial": "বাজানোর জন্য প্রস্তুত। প্রথম নোটে harmonium samples লোড হবে।",
+      "loading": "harmonium samples লোড হচ্ছে...",
+      "ready": "প্রস্তুত"
+    },
+    "controls": {
+      "volume": "ভলিউম: {volume}%",
+      "reverb": "রিভার্ব",
+      "enabled": "চালু",
+      "disabled": "বন্ধ",
+      "transpose": "ট্রান্সপোজ - {rootNote}",
+      "transposeShort": "ট্রান্সপোজ",
+      "octave": "অক্টেভ",
+      "reeds": "রিডস"
+    },
+    "midi": {
+      "initial": "MIDI কীবোর্ড: সংযোগ করতে refresh ক্লিক করুন",
+      "unsupported": "MIDI কীবোর্ড: এই ব্রাউজারে সমর্থিত নয়",
+      "connected": "MIDI কীবোর্ড: সংযুক্ত",
+      "noDevices": "MIDI কীবোর্ড: কোনো input device নেই",
+      "failed": "MIDI কীবোর্ড: ব্যর্থ ({error})",
+      "input": "MIDI input",
+      "inputBy": "{manufacturer} এর {name}",
+      "noInputSelected": "কোনো MIDI input নির্বাচন করা হয়নি"
+    },
+    "notation": {
+      "title": "নোটেশন",
+      "placeholder": "swaram notation সংগ্রহ করতে keys বাজান।"
+    },
+    "aria": {
+      "loadingSamples": "Samples লোড হচ্ছে",
+      "keyboard": "বাজানো যায় এমন harmonium keyboard",
+      "refreshMidi": "MIDI devices refresh করুন",
+      "decrease": "{title} কমান",
+      "increase": "{title} বাড়ান"
+    },
+    "errors": {
+      "webAudioUnsupported": "এই ব্রাউজার Web Audio সমর্থন করে না।",
+      "loadFailed": "Module লোড করা যায়নি।",
+      "unknown": "অজানা ত্রুটি"
+    }
+  },
+  "HomeSeo": {
+    "browserRequirements": "Web Audio সমর্থিত আধুনিক ব্রাউজার প্রয়োজন। Web MIDI support ঐচ্ছিক।",
+    "featureList": [
+      "Online harmonium keyboard",
+      "Computer keyboard shortcuts",
+      "MIDI keyboard support",
+      "Transpose controls",
+      "Octave controls",
+      "Reverb",
+      "Swaram notation practice"
+    ],
+    "sections": [
+      {
+        "title": "Harmonium কী",
+        "body": "Harmonium একটি reed keyboard instrument, যা Indian classical music, bhajan, kirtan, vocal practice এবং devotional singing-এ ব্যবহৃত হয়। এই online harmonium ব্রাউজারে notes শোনা, pitch পরীক্ষা এবং melody অনুসরণ করার সহজ উপায় দেয়।"
+      },
+      {
+        "title": "Riyaz কীভাবে করবেন",
+        "body": "Daily riyaz-এর জন্য online harmonium-কে steady pitch reference হিসেবে ব্যবহার করুন। আরামদায়ক Sa বেছে নিন, ধীরে বাজান, ছোট phrases পুনরাবৃত্তি করুন এবং transpose ও octave controls দিয়ে নিজের range অনুযায়ী practice করুন।"
+      },
+      {
+        "title": "Harmonium Notes Guide",
+        "body": "Visual keyboard harmonium-style white ও black keys এবং computer shortcuts দেখায়। Note labels ও swaram notation area ব্যবহার করে key positions-কে Sa Re Ga Ma patterns-এর সঙ্গে মিলিয়ে নিন।"
+      },
+      {
+        "title": "Sa Re Ga Ma Tutorial",
+        "body": "Sa Re Ga Ma Pa Dha Ni Sa দিয়ে শুরু করুন, তারপর Sa Ni Dha Pa Ma Ga Re Sa দিয়ে ফিরে আসুন। ধীরে practice করুন, পরে speed বাড়ান। Pattern স্থির হলে transpose করে নতুন pitch-এ একই sargam করুন।"
+      },
+      {
+        "title": "Online Harmonium কেন ব্যবহার করবেন",
+        "body": "Online harmonium quick pitch checks, melody exploration, teaching এবং shared devices-এ practice-এর জন্য উপযোগী। এটি real harmonium-এর air, reeds ও feel বদলে দেয় না, কিন্তু দ্রুত ও free practice tool দেয়।"
+      },
+      {
+        "title": "MIDI Support",
+        "body": "Compatible MIDI keyboard সংযোগ করে physical keys দিয়ে browser harmonium বাজাতে পারেন। MIDI support online instrument-এর সুবিধার সঙ্গে ভালো timing, touch ও practice flow দেয়।"
+      }
+    ],
+    "faqTitle": "Online Harmonium FAQ",
+    "faq": [
+      {
+        "question": "Harmonium কী?",
+        "answer": "Harmonium একটি reed-based keyboard instrument, যা Indian classical music, devotional singing এবং vocal training-এ ব্যবহৃত হয়। এতে air reeds দিয়ে যায় এবং keys দিয়ে notes বেছে নেওয়া হয়।"
+      },
+      {
+        "question": "আমি কি online harmonium শিখতে পারি?",
+        "answer": "হ্যাঁ। Online harmonium note positions, sargam, melodies এবং pitch awareness শিখতে সাহায্য করে। Advanced technique ও hand control-এর জন্য physical harmonium practice-ও উপকারী।"
+      },
+      {
+        "question": "Online harmonium কি free?",
+        "answer": "হ্যাঁ। Free Harmonium ব্রাউজারে বিনামূল্যে বাজানো যায়। Keyboard shortcuts, touch controls, MIDI input, transpose controls এবং swaram notation ব্যবহার করা যায়।"
+      },
+      {
+        "question": "Sargam কীভাবে practice করব?",
+        "answer": "ধীরে Sa Re Ga Ma Pa Dha Ni Sa দিয়ে শুরু করুন এবং Sa Ni Dha Pa Ma Ga Re Sa দিয়ে ফিরে আসুন। Pitch steady রাখুন, ছোট sessions-এ repeat করুন এবং transpose দিয়ে বিভিন্ন root notes-এ practice করুন।"
+      },
+      {
+        "question": "আমি কি MIDI keyboard ব্যবহার করতে পারি?",
+        "answer": "হ্যাঁ। আপনার browser ও device Web MIDI support করলে compatible MIDI keyboard দিয়ে online harmonium বাজাতে পারেন।"
+      },
+      {
+        "question": "এই harmonium কি transpose controls support করে?",
+        "answer": "হ্যাঁ। Transpose control root note বদলাতে দেয়, যাতে vocal range, pitch বা song অনুযায়ী practice করা যায়।"
+      }
+    ]
+  },
+  "Blog": {
+    "title": "ব্লগ পোস্ট",
+    "description": "ব্লগ পোস্টের তালিকা"
+  },
+  "About": {
+    "title": "সম্পর্কে",
+    "description": "সাইট সম্পর্কে"
+  },
+  "TermsOfService": {
+    "title": "সেবার শর্তাবলি",
+    "description": "সেবার শর্তাবলি"
+  },
+  "PrivacyPolicy": {
+    "title": "গোপনীয়তা নীতি",
+    "description": "গোপনীয়তা নীতি"
+  },
+  "Showcase": {
+    "title": "উদাহরণ",
+    "description": "এই সাইটের উদাহরণ দেখুন।",
+    "visitSite": "সাইট দেখুন"
+  },
+  "Submission": {
+    "badge": "ফিচার হোন",
+    "title": "আপনার পণ্য জমা দিন",
+    "description": "ভালো কিছু বানিয়েছেন? কমিউনিটির সঙ্গে শেয়ার করুন।",
+    "productNameLabel": "পণ্যের নাম",
+    "productNamePlaceholder": "আমার দারুণ প্রজেক্ট",
+    "productUrlLabel": "পণ্যের URL",
+    "submit": "জমা দিন",
+    "submitting": "জমা হচ্ছে...",
+    "successMessage": "ধন্যবাদ! আপনার submission পাওয়া গেছে।",
+    "errorMessage": "কিছু ভুল হয়েছে। আবার চেষ্টা করুন।"
+  }
+}

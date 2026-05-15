@@ -1,0 +1,220 @@
+{
+  "LanguageDetection": {
+    "title": "भाषा सुझाव",
+    "description": "तपाईंको ब्राउजरको भाषा हालको साइट भाषाभन्दा फरक छ। तपाईं जुनसुकै बेला भाषा बदल्न सक्नुहुन्छ।",
+    "countdown": "{countdown} सेकेन्डमा बन्द हुनेछ",
+    "switchTo": "बदल्नुहोस्"
+  },
+  "Header": {
+    "links": [
+      {
+        "name": "बारेमा",
+        "href": "/about"
+      }
+    ]
+  },
+  "Footer": {
+    "Copyright": "प्रतिलिपि अधिकार © {year} {name} सबै अधिकार सुरक्षित।",
+    "PrivacyPolicy": "गोपनीयता नीति",
+    "TermsOfService": "सेवाका सर्तहरू",
+    "Links": {
+      "groups": [
+        {
+          "title": "भाषाहरू",
+          "links": [
+            {
+              "href": "/en",
+              "name": "English",
+              "useA": true
+            },
+            {
+              "href": "/hi",
+              "name": "हिन्दी",
+              "useA": true
+            },
+            {
+              "href": "/bn",
+              "name": "বাংলা",
+              "useA": true
+            },
+            {
+              "href": "/ne",
+              "name": "नेपाली",
+              "useA": true
+            },
+            {
+              "href": "/ja",
+              "name": "日本語",
+              "useA": true
+            },
+            {
+              "href": "/zh",
+              "name": "中文",
+              "useA": true
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "Home": {
+    "title": "Free Harmonium",
+    "heroTitle": "Free Online Harmonium – किबोर्ड र MIDI बाट बजाउनुहोस्",
+    "tagLine": "ब्राउजरमै बजाउन मिल्ने हार्मोनियम",
+    "description": "कम्प्युटर किबोर्ड, टच स्क्रिन वा MIDI किबोर्डबाट सीधै ब्राउजरमा harmonium बजाउनुहोस्।",
+    "seoTitle": "Free Online Harmonium – किबोर्ड र MIDI बाट बजाउनुहोस्",
+    "seoDescription": "वास्तविक harmonium sound, keyboard shortcuts, MIDI support, transpose controls र Indian classical music practice tools सहित निःशुल्क online harmonium बजाउनुहोस्।",
+    "seoKeywords": [
+      "free harmonium",
+      "web harmonium",
+      "online harmonium",
+      "harmonium keyboard",
+      "play harmonium online",
+      "virtual harmonium",
+      "browser harmonium",
+      "swaram notation"
+    ]
+  },
+  "WebHarmonium": {
+    "title": "Free Online Harmonium – किबोर्ड र MIDI बाट बजाउनुहोस्",
+    "status": {
+      "initial": "बजाउन तयार। पहिलो note ले harmonium samples लोड गर्छ।",
+      "loading": "harmonium samples लोड हुँदैछन्...",
+      "ready": "तयार"
+    },
+    "controls": {
+      "volume": "भोल्युम: {volume}%",
+      "reverb": "रिभर्ब",
+      "enabled": "सक्रिय",
+      "disabled": "निष्क्रिय",
+      "transpose": "ट्रान्सपोज - {rootNote}",
+      "transposeShort": "ट्रान्सपोज",
+      "octave": "अक्टेभ",
+      "reeds": "रीड्स"
+    },
+    "midi": {
+      "initial": "MIDI किबोर्ड: जडान गर्न refresh क्लिक गर्नुहोस्",
+      "unsupported": "MIDI किबोर्ड: यो ब्राउजरले support गर्दैन",
+      "connected": "MIDI किबोर्ड: जडान भयो",
+      "noDevices": "MIDI किबोर्ड: input device भेटिएन",
+      "failed": "MIDI किबोर्ड: असफल ({error})",
+      "input": "MIDI input",
+      "inputBy": "{manufacturer} को {name}",
+      "noInputSelected": "कुनै MIDI input चयन गरिएको छैन"
+    },
+    "notation": {
+      "title": "Notation",
+      "placeholder": "swaram notation सङ्कलन गर्न keys बजाउनुहोस्।"
+    },
+    "aria": {
+      "loadingSamples": "Samples लोड हुँदैछन्",
+      "keyboard": "बजाउन मिल्ने harmonium keyboard",
+      "refreshMidi": "MIDI devices refresh गर्नुहोस्",
+      "decrease": "{title} घटाउनुहोस्",
+      "increase": "{title} बढाउनुहोस्"
+    },
+    "errors": {
+      "webAudioUnsupported": "यो ब्राउजरले Web Audio support गर्दैन।",
+      "loadFailed": "Module लोड हुन सकेन।",
+      "unknown": "अज्ञात त्रुटि"
+    }
+  },
+  "HomeSeo": {
+    "browserRequirements": "Web Audio support गर्ने आधुनिक ब्राउजर चाहिन्छ। Web MIDI support वैकल्पिक हो।",
+    "featureList": [
+      "Online harmonium keyboard",
+      "Computer keyboard shortcuts",
+      "MIDI keyboard support",
+      "Transpose controls",
+      "Octave controls",
+      "Reverb",
+      "Swaram notation practice"
+    ],
+    "sections": [
+      {
+        "title": "Harmonium के हो",
+        "body": "Harmonium एक reed keyboard instrument हो, जुन Indian classical music, bhajan, kirtan, vocal practice र devotional singing मा प्रयोग हुन्छ। यो online harmonium ले browser मै notes सुन्न, pitch जाँच्न र melody follow गर्न सजिलो बनाउँछ।"
+      },
+      {
+        "title": "Riyaz कसरी गर्ने",
+        "body": "Daily riyaz का लागि online harmonium लाई steady pitch reference का रूपमा प्रयोग गर्नुहोस्। सहज Sa छान्नुहोस्, बिस्तारै बजाउनुहोस्, छोटा phrases दोहोर्याउनुहोस् र transpose तथा octave controls बाट आफ्नो range मिलाउनुहोस्।"
+      },
+      {
+        "title": "Harmonium Notes Guide",
+        "body": "Visual keyboard ले harmonium-style white र black keys सँग computer shortcuts देखाउँछ। Note labels र swaram notation area प्रयोग गरेर key positions लाई Sa Re Ga Ma patterns सँग जोड्नुहोस्।"
+      },
+      {
+        "title": "Sa Re Ga Ma Tutorial",
+        "body": "Sa Re Ga Ma Pa Dha Ni Sa बाट सुरु गर्नुहोस्, अनि Sa Ni Dha Pa Ma Ga Re Sa बाट फर्कनुहोस्। पहिले बिस्तारै practice गर्नुहोस्, पछि speed बढाउनुहोस्। Pattern स्थिर भएपछि transpose गरेर नयाँ pitch मा अभ्यास गर्नुहोस्।"
+      },
+      {
+        "title": "Online Harmonium किन प्रयोग गर्ने",
+        "body": "Online harmonium quick pitch checks, melody exploration, teaching र shared devices मा practice गर्न उपयोगी छ। यसले real harmonium को air, reeds र feel replace गर्दैन, तर छिटो र free practice tool दिन्छ।"
+      },
+      {
+        "title": "MIDI Support",
+        "body": "Compatible MIDI keyboard जोडेर physical keys बाट browser harmonium बजाउन सकिन्छ। MIDI support ले online instrument को सुविधा सँगै राम्रो timing, touch र practice flow दिन्छ।"
+      }
+    ],
+    "faqTitle": "Online Harmonium FAQ",
+    "faq": [
+      {
+        "question": "Harmonium के हो?",
+        "answer": "Harmonium एक reed-based keyboard instrument हो, जुन Indian classical music, devotional singing र vocal training मा प्रयोग हुन्छ। यसमा air reeds मार्फत जान्छ र keys बाट notes छानिन्छ।"
+      },
+      {
+        "question": "के म online harmonium सिक्न सक्छु?",
+        "answer": "हो। Online harmonium ले note positions, sargam, melodies र pitch awareness सिक्न मद्दत गर्छ। Advanced technique र hand control का लागि physical harmonium practice पनि उपयोगी हुन्छ।"
+      },
+      {
+        "question": "Online harmonium free हो?",
+        "answer": "हो। Free Harmonium browser मा निःशुल्क बजाउन सकिन्छ। Keyboard shortcuts, touch controls, MIDI input, transpose controls र swaram notation प्रयोग गर्न सकिन्छ।"
+      },
+      {
+        "question": "Sargam कसरी practice गर्ने?",
+        "answer": "बिस्तारै Sa Re Ga Ma Pa Dha Ni Sa बाट सुरु गर्नुहोस् र Sa Ni Dha Pa Ma Ga Re Sa बाट फर्कनुहोस्। Pitch steady राख्नुहोस्, छोटा sessions मा repeat गर्नुहोस् र transpose बाट फरक root notes मा अभ्यास गर्नुहोस्।"
+      },
+      {
+        "question": "के म MIDI keyboard प्रयोग गर्न सक्छु?",
+        "answer": "हो। तपाईंको browser र device ले Web MIDI support गरेमा compatible MIDI keyboard बाट online harmonium बजाउन सक्नुहुन्छ।"
+      },
+      {
+        "question": "के यो harmonium ले transpose controls support गर्छ?",
+        "answer": "हो। Transpose control ले root note बदल्न दिन्छ, जसले vocal range, pitch वा song अनुसार अभ्यास गर्न सजिलो बनाउँछ।"
+      }
+    ]
+  },
+  "Blog": {
+    "title": "ब्लग पोस्टहरू",
+    "description": "ब्लग पोस्टहरूको सूची"
+  },
+  "About": {
+    "title": "बारेमा",
+    "description": "साइटको बारेमा"
+  },
+  "TermsOfService": {
+    "title": "सेवाका सर्तहरू",
+    "description": "सेवाका सर्तहरू"
+  },
+  "PrivacyPolicy": {
+    "title": "गोपनीयता नीति",
+    "description": "गोपनीयता नीति"
+  },
+  "Showcase": {
+    "title": "उदाहरणहरू",
+    "description": "यो साइटसँग सम्बन्धित उदाहरणहरू हेर्नुहोस्।",
+    "visitSite": "साइट हेर्नुहोस्"
+  },
+  "Submission": {
+    "badge": "Featured हुनुहोस्",
+    "title": "आफ्नो उत्पादन पठाउनुहोस्",
+    "description": "केही राम्रो बनाउनुभएको छ? समुदायसँग साझा गर्नुहोस्।",
+    "productNameLabel": "उत्पादनको नाम",
+    "productNamePlaceholder": "मेरो राम्रो project",
+    "productUrlLabel": "उत्पादन URL",
+    "submit": "पठाउनुहोस्",
+    "submitting": "पठाइँदैछ...",
+    "successMessage": "धन्यवाद! तपाईंको submission प्राप्त भयो।",
+    "errorMessage": "केही गलत भयो। फेरि प्रयास गर्नुहोस्।"
+  }
+}
