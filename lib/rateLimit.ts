@@ -2,21 +2,33 @@ import { Ratelimit } from '@upstash/ratelimit';
 import { Redis } from '@upstash/redis';
 import { headers } from 'next/headers';
 
-// initialize Redis
-const redis = new Redis({
-  url: process.env.UPSTASH_REDIS_REST_URL!,
-  token: process.env.UPSTASH_REDIS_REST_TOKEN!,
-});
-
 const REDIS_RATE_LIMIT_KEY = 'newsletter:rate-limit';
 const DAY_MAX_SUBMISSIONS = parseInt(process.env.DAY_MAX_SUBMISSIONS || '10');
 
-// create rate limiter
-const limiter = new Ratelimit({
-  redis,
-  limiter: Ratelimit.slidingWindow(DAY_MAX_SUBMISSIONS, '1d'),
-  prefix: REDIS_RATE_LIMIT_KEY,
-});
+let limiter: Ratelimit | null = null;
+
+function getRateLimiter() {
+  if (limiter) {
+    return limiter;
+  }
+
+  const url = process.env.UPSTASH_REDIS_REST_URL;
+  const token = process.env.UPSTASH_REDIS_REST_TOKEN;
+
+  if (!url || !token) {
+    throw new Error('Upstash Redis is not configured');
+  }
+
+  const redis = new Redis({ url, token });
+
+  limiter = new Ratelimit({
+    redis,
+    limiter: Ratelimit.slidingWindow(DAY_MAX_SUBMISSIONS, '1d'),
+    prefix: REDIS_RATE_LIMIT_KEY,
+  });
+
+  return limiter;
+}
 
 // Shared rate limit check
 export async function checkRateLimit() {
@@ -25,9 +37,8 @@ export async function checkRateLimit() {
     headersList.get('x-forwarded-for') ||
     'unknown';
 
-  const { success } = await limiter.limit(ip);
+  const { success } = await getRateLimiter().limit(ip);
   if (!success) {
     throw new Error('Too many submissions, please try again later');
   }
 }
-
