@@ -15,7 +15,6 @@ import { Link as I18nLink } from "@/i18n/routing";
 import { HeaderLink } from "@/types/common";
 import { Menu } from "lucide-react";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 
 export default function MobileMenu() {
   const t = useTranslations("Home");
@@ -39,7 +38,8 @@ export default function MobileMenu() {
               prefetch={true}
               className="flex items-center space-x-1 font-bold"
             >
-              <Image
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
                 alt={t("title")}
                 src="/webharmonium/icons/webharmonium_192.png"
                 className="w-6 h-6"

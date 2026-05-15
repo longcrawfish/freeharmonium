@@ -5,7 +5,6 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import { siteConfig } from "@/config/site";
 import { Link as I18nLink } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 
 const Header = () => {
   const t = useTranslations("Home");
@@ -19,7 +18,8 @@ const Header = () => {
             prefetch={false}
             className="flex items-center space-x-1 font-bold"
           >
-            <Image
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
               alt={siteConfig.name}
               src="/webharmonium/icons/webharmonium_192.png"
               className="w-6 h-6"
