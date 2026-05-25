@@ -41,11 +41,6 @@ export async function HomePage({ locale, path }: { locale: Locale; path: string 
       price: "0",
       priceCurrency: "USD",
     },
-    creator: {
-      "@type": "Person",
-      name: siteConfig.authors[0]?.name || siteConfig.name,
-      url: siteConfig.authors[0]?.url || siteConfig.url,
-    },
   };
 
   const faqJsonLd = {

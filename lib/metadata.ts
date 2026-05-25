@@ -66,8 +66,6 @@ export async function constructMetadata({
     title: finalTitle,
     description: pageDescription,
     keywords,
-    authors: siteConfig.authors,
-    creator: siteConfig.creator,
     metadataBase: new URL(siteConfig.url),
     alternates: {
       canonical: canonicalUrl ? `${siteConfig.url}${locale === DEFAULT_LOCALE ? '' : `/${locale}`}${canonicalUrl === '/' ? '' : canonicalUrl}` : undefined,
@@ -88,7 +86,6 @@ export async function constructMetadata({
       description: pageDescription,
       site: siteConfig.url,
       images: imageUrls,
-      creator: siteConfig.creator,
     },
     robots: {
       index: !noIndex,

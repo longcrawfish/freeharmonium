@@ -1,8 +1,3 @@
-
-export type AuthorsConfig = {
-  name: string
-  url: string
-}
 export type ThemeColor = {
   media: string
   color: string
@@ -12,7 +7,6 @@ export type SiteConfig = {
   tagLine?: string
   description?: string
   url: string
-  authors: AuthorsConfig[]
   socialLinks?: {
     github?: string
     bluesky?: string
@@ -21,7 +15,6 @@ export type SiteConfig = {
     discord?: string
     email?: string
   }
-  creator: string
   themeColors?: string | ThemeColor[]
   defaultNextTheme?: string
   icons: {

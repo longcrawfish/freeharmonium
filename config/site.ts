@@ -17,13 +17,6 @@ export const siteConfig: SiteConfig = {
   description:
     "Play harmonium with your computer keyboard, touch screen, or MIDI keyboard directly in the browser.",
   url: BASE_URL,
-  authors: [
-    {
-      name: "weijunext",
-      url: "https://weijunext.com",
-    }
-  ],
-  creator: '@weijunext',
   socialLinks: {
     discord: DISCORD_URL,
     twitter: TWITTER_URL,
